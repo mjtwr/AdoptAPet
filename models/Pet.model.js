@@ -28,8 +28,10 @@ const PetSchema = new Schema({
         email: String
     }, 
     adopted: Boolean,
-    user: objectId,
-    timestamps: true,
+    // user: objectId,
+    
+},{
+ timestamps: true,
 });
 
 const Pet = mongoose.model("Pet", PetSchema);

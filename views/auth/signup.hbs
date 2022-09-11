@@ -1,27 +1,39 @@
 <h2>Signup</h2>
   <form action="/auth/signup" method="POST">
  
-    <label> First Name
+    <label>
       <input type="text" name="firstName" placeholder="First Name" />
     </label>
  
-    <label> Last Name
+    <label>
       <input type="text" name="lastName" placeholder="Last Name" />
     </label>
  
-    <label> Date ot Birth
+    <label> 
       <input type="date" name="Age"  />
     </label>
 
-		<label for=""> City
+		<label for=""> 
 			<input type="text" name="City" placeholder="City">
 		</label>
 
-		<label for=""> Phone Number
+		<label for=""> 
 			<input type="tel" name="PhoneNumber" placeholder="Phone Number">
 		</label>
 
+		<label for="">
+			<input type="email" name="email" placeholder="pets@pets.com">
+		</label>
+
+		<label for="">
+			<input type="text" name="username" placeholder="Username">
+		</label>
+
+		<label for="">
+			<input type="password" name="password" placeholder="********">
+		</label>
+
     <button type="submit">Create account</button>
-{{#if errorMessage}}
+{{!-- {{#if errorMessage}}
    {{errorMessage}}
-{{/if}}
+{{/if}} --}}
