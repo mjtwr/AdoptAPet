@@ -2,7 +2,7 @@
    <label> Pet's Name
       <input type="text" name="petsname">
    </label>
-    <label for="browser">Type of Pet</label>
+    <label for="pets">Type of Pet</label>
         <input list="pets" name="pets">
         <datalist id="pets">
             <option value="Dog">
@@ -30,7 +30,7 @@
         <input list="sociability" name="sociability">
         <datalist id="sociability">
             <option value="Sociable">
-            <option value="NO sociable">
+            <option value="No sociable">
         </datalist>
     <label> Address
       <input type="text" name="address">
@@ -41,8 +41,11 @@
    <label> Name
       <input type="text" name="name">
    </label>
-   <label> Status
-      <input type="text" name="name">
-   </label>
+ <label for="status">Status</label>
+        <input list="status" name="status">
+        <datalist id="status">
+            <option value="Looking for a family">
+            <option value="Adopted">
+        </datalist>
    <button type="submit">Submit</button>
 </form>
