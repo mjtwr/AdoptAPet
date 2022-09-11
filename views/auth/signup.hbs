@@ -1,18 +1,29 @@
-<div id="form">
-  <h2>Signup</h2>
+<h2>Signup</h2>
   <form action="/auth/signup" method="POST">
  
-    <label> Username
-      <input type="text" name="username" placeholder="ironhacker" />
+    <label> First Name
+      <input type="text" name="firstName" placeholder="First Name" />
     </label>
  
-    <label> Email
-      <input type="text" name="email" placeholder="rockstar@ironhack.com" />
+    <label> Last Name
+      <input type="text" name="lastName" placeholder="Last Name" />
     </label>
  
-    <label> Password
-      <input type="password" name="password" placeholder="********" />
+    <label> Date ot Birth
+      <input type="date" name="Age"  />
     </label>
+
+		<label for=""> City
+			<input type="text" name="City" placeholder="City">
+		</label>
+
+		<label for=""> Cell Number
+			<input type="tel" name="cellNumber" placeholder="Cell Number">
+		</label>
+
+		<label for=""> Ocuppation
+			<input type="text" name="ocuppation" placeholder="Ocuppation">
+		</label>
  
     <button type="submit">Create account</button>
 {{#if errorMessage}}
