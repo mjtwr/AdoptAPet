@@ -20,11 +20,7 @@ const PetSchema = new Schema({
         type: String,
         enum: ["sociable","no sociable"] ,
     },
-    address: {
-        street: String, 
-        neighbourhood: String, 
-        city: String,
-    },
+    city: String,
     contact: {
         phone: Number, 
         name: String, 
