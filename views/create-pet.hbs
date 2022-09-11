@@ -1,0 +1,48 @@
+<form action="/auth/signup" method="POST">
+   <label> Pet's Name
+      <input type="text" name="petsname">
+   </label>
+    <label for="browser">Type of Pet</label>
+        <input list="pets" name="pets">
+        <datalist id="pets">
+            <option value="Dog">
+            <option value="Cat">
+        </datalist>
+  <input type="submit">
+    <label> Date of Birth
+      <input type="date" name="dof">
+   </label>
+    <label for="size">Size</label>
+        <input list="size" name="size">
+        <datalist id="size">
+            <option value="Small">
+            <option value="Medium">
+            <option value="Large"></option>
+        </datalist>
+    <label for="personality">Personality</label>
+        <input list="personality" name="personality">
+        <datalist id="personality">
+            <option value="Active">
+            <option value="Energic">
+            <option value="Relaxed"></option>
+        </datalist>
+   <label for="sociability">Sociability</label>
+        <input list="sociability" name="sociability">
+        <datalist id="sociability">
+            <option value="Sociable">
+            <option value="NO sociable">
+        </datalist>
+    <label> Address
+      <input type="text" name="address">
+   </label>
+    <label> Phone
+      <input type="text" name="phone">
+   </label>
+   <label> Name
+      <input type="text" name="name">
+   </label>
+   <label> Status
+      <input type="text" name="name">
+   </label>
+   <button type="submit">Submit</button>
+</form>
