@@ -2,12 +2,12 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema
 
 const PetSchema = new Schema({
-    name:String,
+    petname: String,
     pet: {
         type: String,
         enum:["dog", "cat"]
     },
-    dateOfBirth: Date, 
+    dob: Date, 
     size: {
         type: String,
         enum: ["small","medium", "big"],
@@ -21,17 +21,13 @@ const PetSchema = new Schema({
         enum: ["sociable","no sociable"] ,
     },
     city: String,
-    contact: {
-        phone: Number, 
-        name: String, 
-        lastName: String, 
-        email: String
-    }, 
-    adopted: Boolean,
-    // user: ObjectId,
+    phone: String,
+    name: String,
+    status: Boolean,
+    //user: ObjectId,
     
 },{
- timestamps: true,
+timestamps: true,
 });
 
 const Pet = mongoose.model("Pet", PetSchema);

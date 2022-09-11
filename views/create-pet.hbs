@@ -1,15 +1,15 @@
-<form action="/pet/myPets" method="POST">
+<form action="/pet/my-pets" method="POST">
    <label> Pet's Name
-      <input type="text" name="petsname">
+      <input type="text" name="petname">
    </label>
     <label for="pets">Type of Pet</label>
-        <input list="pets" name="pets">
-        <datalist id="pets">
+        <input list="pet" name="pet">
+        <datalist id="pet">
             <option value="Dog">
             <option value="Cat">
         </datalist>
     <label> Date of Birth
-      <input type="date" name="dof">
+      <input type="date" name="dob">
    </label>
     <label for="size">Size</label>
         <input list="size" name="size">
@@ -31,8 +31,8 @@
             <option value="Sociable">
             <option value="No sociable">
         </datalist>
-    <label> Address
-      <input type="text" name="address">
+    <label> City
+      <input type="text" name="city">
    </label>
     <label> Phone
       <input type="text" name="phone">
@@ -46,5 +46,5 @@
             <option value="Looking for a family">
             <option value="Adopted">
         </datalist>
-   <button type="submit">Submit</button>
+   <button type="submit"><a href="/pet/my-pets">Submit</a></button>
 </form>

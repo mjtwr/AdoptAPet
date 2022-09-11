@@ -12,16 +12,15 @@ router.get("/new",(req,res)=>{
 	res.render("create-pet")
 });
 
-router.post("/new", (req, res)=>{
-	const {name, pet, dateOfBirth, size, personality, sociability, city, contact, adopted} = req.body
-	console.log("PETS====", req.body)
+router.post("/new", (req, res, next)=>{
+	const {petname, pet, dob, size, personality, sociability, city, name, phone, status} = req.body
 	return Pet.create({
-		name, pet, dateOfBirth, size, personality, sociability, city, contact, adopted	
+		petname, pet, dob, size, personality, sociability, city, name, phone, status
 	})
+	console.log("PETS====", req.body)
+
 }) 
-// .then(()=>{
-// 	res.redirect("../views/myPets.hbs")
-// }).catch((err) => {(err)})
+
 
 router.get("/my-pets",(req,res)=>{
 	res.render("myPets")
