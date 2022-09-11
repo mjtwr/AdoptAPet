@@ -6,13 +6,22 @@ const mongoose = require("mongoose");
 const Pet = require("../models/Pet.model");
 const User = require("../models/User.model");
 
-// Require necessary (isLoggedOut and isLoggedIn) middleware in order to control access to specific routes
-// const isLoggedOut = require("../middleware/isLoggedOut");
-// const isLoggedIn = require("../middleware/isLoggedIn");
+
 
 router.get("/new",(req,res)=>{
 	res.render("create-pet")
 });
+
+router.post("/new", (req, res)=>{
+	const {name, pet, dateOfBirth, size, personality, sociability, city, contact, adopted} = req.body
+	console.log("PETS====", req.body)
+	return Pet.create({
+		name, pet, dateOfBirth, size, personality, sociability, city, contact, adopted	
+	})
+}) 
+// .then(()=>{
+// 	res.redirect("../views/myPets.hbs")
+// }).catch((err) => {(err)})
 
 router.get("/my-pets",(req,res)=>{
 	res.render("myPets")
