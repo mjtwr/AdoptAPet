@@ -3,6 +3,7 @@ const router = require("express").Router();
 // ℹ️ Handles password encryption
 const bcrypt = require("bcrypt");
 const mongoose = require("mongoose");
+const MONGO_URI = require("../utils/consts");
 
 // How many rounds should bcrypt run the salt (default [10 - 12 rounds])
 const saltRounds = 10;
@@ -19,7 +20,8 @@ router.get("/signup", isLoggedOut, (req, res) => {
 });
 
 router.post("/signup", isLoggedOut, (req, res) => {
-  const { username, password } = req.body;
+  const { name,lastName,phone,email,username,password,city} = req.body;
+	console.log("REQBODY:",req.body)
 
   if (!username) {
     return res.status(400).render("auth/signup", {
