@@ -25,5 +25,13 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mjtwr/AdoptAPet.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mjtwr/AdoptAPet/issues"
+  },
+  "homepage": "https://github.com/mjtwr/AdoptAPet#readme",
   "description": ""
 }
