@@ -12,6 +12,8 @@ router.get("/new",(req,res)=>{
 	res.render("create-pet",req.session.user)
 });
 
+
+//form
 router.post("/new", (req, res, next)=>{
 	const {petname, pet, dob, size, personality, sociability, city, name, phone, status} = req.body
 	//console.log("PETS====", req.body)
@@ -35,10 +37,10 @@ router.get("/my-pets",(req,res)=>{
 
 //view pet details
 router.get("/my-pets/:id", (req, res)=>{
-	console.log(req.params.id)
-	Pet.findById(req.params.id).then((pet)=>{
-		res.render("../views/petdetails.hbs", pet)
-	})
+	// Pet.findById(req.params.id).then((pet)=>{
+		// })
+		 	console.log(req.params)
+		res.render("../views/petdetails.hbs")
 })
 
 router.get("/wall",(req,res)=>{
