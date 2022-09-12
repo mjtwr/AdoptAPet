@@ -33,5 +33,8 @@
     "url": "https://github.com/mjtwr/AdoptAPet/issues"
   },
   "homepage": "https://github.com/mjtwr/AdoptAPet#readme",
+  "bin": {
+    "adoptapet": "bin/seed.js"
+  },
   "description": ""
 }

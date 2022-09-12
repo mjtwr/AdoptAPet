@@ -18,6 +18,7 @@ body {
   padding:0px 0px 2%;
   height: 65vh;
   width: 100%;
+  border-radius: 0 0 85% 85% / 30%;
 }
 .home1 h1 {
   font-size:70px;
@@ -26,14 +27,16 @@ body {
   color: white;
   text-shadow: #020819 8px 0px 9px;
 }
-.home-signup {
+
+
+.btnHome-signup {
   font-family: 'Poppins';
   font-size:15px;
   font-weight: bold;
   border:0px;
   padding: 10px 50px;
   color:white;
-  background-color:#FB3B49;
+  background-color:#9900d1;
   box-shadow:8px 8px 0 rgba(251,59,73,.2);
   text-decoration:none;
 }
@@ -61,6 +64,20 @@ body {
   padding:2% 0px 60px;
   height: 40%;
 }
+
+.home2 h2{
+  font-weight: 700;
+  font-size: 90px;
+  padding-top: 40px;
+background-image: url("/images/paws.jpg");
+  background-size: 200px;
+  background-repeat: repeat;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  text-shadow: #020819 7px 0px 8px;
+}
+
 .home2 img{
   padding:5% 0px 5%;
   width: 40vw;
@@ -88,7 +105,7 @@ body {
   justify-content: center;
   align-items: center;
   border: 2px solid black;
-  background-color: dodgerblue;
+  background-color: #00D1B5;
   border-radius: 10%;
   padding: 30px 10px;
   padding-top: 20px;
@@ -105,4 +122,19 @@ body {
 .home3 h4 {
   color: whitesmoke;
   padding:20px 0px 0px;
+}
+
+.information{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+nav{
+  
+  background-image:url("/images/paws2.png");
+  opacity: 0.7;
+  background-position: 0px 425px; 
+  background-size: 200px;
+  
 }
