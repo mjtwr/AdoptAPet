@@ -20,6 +20,12 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav">
+          {{#if email}}
+          <li class="nav-item">
+            <a class="nav-link" href="/auth/logout" style="color: #fff;">Logout</a>
+          </li>
+          {{/if}}
+          {{#unless email}}
           <li class="nav-item">
             <a class="nav-link" aria-current="page" href="/"  style="color: #fff">Home</a>
           </li>
@@ -29,6 +35,7 @@
           <li class="nav-item">
             <a class="nav-link" href="/auth/signup" style="color: #fff;">Sign Up</a>
           </li>
+          {{/unless}}
           <li class="nav-item">
             <a class="nav-link" href="/pet/my-pets" style="color: #fff;">My Pets</a>
           </li>
@@ -41,6 +48,16 @@
           <a class="dropdown-item" href="#">Pet Match</a>
         </div>
         </li>
+        
+          
+        {{#unless email}}
+          <li class="nav-item">
+            <a class="nav-link" href="/auth/login">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/auth/signup">Signup</a>
+          </li>
+        {{/unless}}
         </ul>
       </div>
     </div>
