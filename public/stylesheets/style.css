@@ -1,14 +1,88 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins');
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-family: 'Poppins';
 }
-
-a {
-  color: #00b7ff;
+.home1 {
+  display: flex;
+  flex-direction:column;
+  text-align : center;
+  background-image: url("/images/catsdogs.jpg");
+  background-repeat:no-repeat;
+  background-size: cover;
+  background-position: 0px;
+  padding:0px 0px 2%;
+  height: 65vh;
+  width: 100%;
 }
-
-h1 {
-  color: 15px;
+.home1 h1 {
+  font-size:50px;
+  font-weight: bold;
+  padding: 10px 0px 0px;
 }
-
-
+.home-signup {
+  font-family: 'Poppins';
+  font-size:15px;
+  font-weight: bold;
+  border:0px;
+  padding: 10px 50px;
+  color:white;
+  background-color:#FB3B49;
+  box-shadow:8px 8px 0 rgba(251,59,73,.2);
+  text-decoration:none;
+}
+.header{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.imgHome{
+  height: 100vh;
+  border-bottom: black;
+}
+.join-free {
+  border:0px;
+  background-color: white;
+  color:black;
+  font-family: 'Poppins';
+  font-size:15px;
+  font-weight: bold;
+  padding: 10px 30px;
+  text-decoration:none;
+}
+.home2 {
+  text-align : center;
+  padding:2% 0px 60px;
+  height: 40%;
+}
+.home2 img{
+  padding:10% 0px 20%;
+  width: 20vw;
+}
+.home2 h3 {
+  font-size:75%;
+  background-color:rgba(255,204,53,.4);
+  transform:skew(9deg,0deg);
+  margin:0px 300px;
+}
+.home2 p {
+  padding: 20px 10% 25px;
+}
+.home3 {
+  display:flex;
+  justify-content: space-between;
+  flex-direction: row;
+  padding:0px 80px;
+}
+.home3 p {
+  font-size:13px;
+  width:200px;
+}
+.home3 img{
+  width : 30px;
+  height: 40px;
+  position:absolute;
+}
+.home3 h4 {
+  color: red;
+  padding:20px 0px 0px;
+}
