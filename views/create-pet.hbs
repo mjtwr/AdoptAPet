@@ -1,50 +1,45 @@
 <form action="/pet/my-pets" method="POST">
    <label> Pet's Name
-      <input type="text" name="petname">
+      <input type="text" name="petname"  placeholder="Michi">
    </label>
     <label for="pets">Type of Pet</label>
-        <input list="pet" name="pet">
-        <datalist id="pet">
-            <option value="Dog">
-            <option value="Cat">
-        </datalist>
+        <select id="pet" name="pet">
+            <option value="Dog">Dog</option>
+            <option value="Cat">Cat</option>
+        </select>
     <label> Date of Birth
       <input type="date" name="dob">
    </label>
     <label for="size">Size</label>
-        <input list="size" name="size">
-        <datalist id="size">
-            <option value="Small">
-            <option value="Medium">
-            <option value="Large"></option>
-        </datalist>
+        <select id="size" name="size">
+            <option value="Small">Small</option>
+            <option value="Medium">Medium</option>
+            <option value="Large">Big</option>
+        </select>
     <label for="personality">Personality</label>
-        <input list="personality" name="personality">
-        <datalist id="personality">
-            <option value="Active">
-            <option value="Energic">
-            <option value="Relaxed"></option>
-        </datalist>
+        <select id="personality" name="personality">
+            <option value="Active">Active</option>
+            <option value="Energic">Energetic</option>
+            <option value="Relaxed">Relaxed</option>
+        </select>
    <label for="sociability">Sociability</label>
-        <input list="sociability" name="sociability">
-        <datalist id="sociability">
-            <option value="Sociable">
-            <option value="No sociable">
-        </datalist>
+        <select id="sociability" name="sociability">
+            <option value="Sociable">Sociable</option>
+            <option value="No sociable">Not very sociable</option>
+        </select>
     <label> City
-      <input type="text" name="city">
+      <input type="text" name="city" placeholder="CDMX">
    </label>
     <label> Phone
-      <input type="text" name="phone">
+      <input type="text" name="phone"  placeholder="555 5555 555">
    </label>
    <label> Name
-      <input type="text" name="name">
+      <input type="text" name="name"  placeholder="Your name">
    </label>
  <label for="status">Status</label>
-        <input list="status" name="status">
-        <datalist id="status">
-            <option value="Looking for a family">
-            <option value="Adopted">
-        </datalist>
+        <select id="status" name="status">
+            <option value="Looking for a family">Looking for a family</option>
+            <option value="Adopted">Adopted</option>
+        </select>
    <button type="submit"><a href="/pet/my-pets">Submit</a></button>
 </form>
