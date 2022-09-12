@@ -27,6 +27,7 @@ const PetSchema = new Schema({
         type: String,
         enum: ["looking for a family", "adopted"]
     },
+		photo: String,
     //user: ObjectId,
     
 },{

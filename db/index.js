@@ -9,9 +9,7 @@ const MONGO_URI = require("../utils/consts");
 
 const Pet = require("../models/Pet.model");
 
-const pets = [
-	{ petname: "Hoshi", pet: "dog", dob: "06/09/2021", size: "Large", personality: "Active", sociability: "sociable", city: "Merida", name: "Marijo", phone: "973973", status:"Adopted" },
-];
+
 mongoose
   .connect(MONGO_URI)
   .then((x) => {
