@@ -37,10 +37,10 @@ router.get("/my-pets",(req,res)=>{
 
 //view pet details
 router.get("/my-pets/:id", (req, res)=>{
-	// Pet.findById(req.params.id).then((pet)=>{
-		// })
-		 	console.log(req.params)
-		res.render("../views/petdetails.hbs")
+	 Pet.findById(req.params.id).then((pet)=>{
+		console.log(req.params.id)
+		res.render("../views/petdetails.hbs", pet)
+		}) 	
 })
 
 router.get("/wall",(req,res)=>{

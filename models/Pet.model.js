@@ -28,7 +28,10 @@ const PetSchema = new Schema({
         enum: ["looking for a family", "adopted"]
     },
 		photo: String,
-    //user: ObjectId,
+    user: {
+        type: Schema.ObjectId,
+        ref: "User"
+    },
     
 },{
 timestamps: true,

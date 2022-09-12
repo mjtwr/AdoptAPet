@@ -1,6 +1,7 @@
 
 <h1>my pets</h1>
 {{#each pets}}
+//user.id === id pet
 <div>
     <h3>{{petname}}</h3>
     <p>
@@ -9,7 +10,6 @@
     <p>
         {{status}}
     </p>
-		<a href="/pet/my-pets/details">Meet me</a>
+		<a href="/pet/my-pets/{{_id}}">Meet me</a>
 </div>
-{{!-- <button href="/pet/my-pets/details"> Meet me </button> --}}
 {{/each}}
