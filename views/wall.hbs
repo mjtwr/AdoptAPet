@@ -1,1 +1,13 @@
 <h1>wall</h1>
+{{#each pets}}
+<div>
+    <h3>{{petname}}</h3>
+    <p>
+        {{pet}}
+    </p>
+    <p>
+        {{status}}
+    </p>
+</div>
+<button href="/AdoptAPet/views/petdetails.hbs" >Meet me</button>
+{{/each}}

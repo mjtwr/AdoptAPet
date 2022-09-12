@@ -14,24 +14,38 @@ router.get("/new",(req,res)=>{
 
 router.post("/new", (req, res, next)=>{
 	const {petname, pet, dob, size, personality, sociability, city, name, phone, status} = req.body
-	console.log("PETS====", req.body)
+	//console.log("PETS====", req.body)
 	Pet.create({
 		petname, pet, dob, size, personality, sociability, city, name, phone, status
 	}).then((result)=>{
-		console.log(result)
+		//console.log(result)
 		 res.redirect("/pet/my-pets")
 		}).catch ((err)=> console.log(err))
 	
 
 }) 
 
-
+//View My Pets in Adoption
 router.get("/my-pets",(req,res)=>{
-	res.render("myPets")
+	Pet.find().then((pets)=>{
+		//console.log(pets)
+		res.render("../views/myPets", {pets : pets});
+	})
 });
 
+//view pet details
+router.get("/my-pets/:id", (req, res)=>{
+	console.log(req.params.id)
+	Pet.findById(req.params.id).then((pet)=>{
+		res.render("../views/petdetails.hbs", pet)
+	})
+})
+
 router.get("/wall",(req,res)=>{
-	res.render("wall")
+	Pet.find().then((pets)=>{
+		//console.log(pets)
+		res.render("../views/wall", {pets : pets});
+	})
 });
 
 //Probablemente cambiemos quiz a otra ruta
