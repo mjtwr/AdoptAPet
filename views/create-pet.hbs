@@ -1,31 +1,31 @@
-<form action="/pet/my-pets" method="POST">
+<form action="/pet/new" method="POST">
    <label> Pet's Name
       <input type="text" name="petname"  placeholder="Michi">
    </label>
     <label for="pets">Type of Pet</label>
         <select id="pet" name="pet">
-            <option value="Dog">Dog</option>
-            <option value="Cat">Cat</option>
+            <option value="dog">Dog</option>
+            <option value="cat">Cat</option>
         </select>
     <label> Date of Birth
       <input type="date" name="dob">
    </label>
     <label for="size">Size</label>
         <select id="size" name="size">
-            <option value="Small">Small</option>
-            <option value="Medium">Medium</option>
-            <option value="Large">Big</option>
+            <option value="small">Small</option>
+            <option value="medium">Medium</option>
+            <option value="big">Big</option>
         </select>
     <label for="personality">Personality</label>
         <select id="personality" name="personality">
-            <option value="Active">Active</option>
-            <option value="Energic">Energetic</option>
-            <option value="Relaxed">Relaxed</option>
+            <option value="playful">Playful</option>
+            <option value="energetic">Energetic</option>
+            <option value="relaxed">Relaxed</option>
         </select>
    <label for="sociability">Sociability</label>
         <select id="sociability" name="sociability">
-            <option value="Sociable">Sociable</option>
-            <option value="No sociable">Not very sociable</option>
+            <option value="sociable">Sociable</option>
+            <option value="no sociable">Not very sociable</option>
         </select>
     <label> City
       <input type="text" name="city" placeholder="CDMX">
@@ -38,8 +38,8 @@
    </label>
  <label for="status">Status</label>
         <select id="status" name="status">
-            <option value="Looking for a family">Looking for a family</option>
-            <option value="Adopted">Adopted</option>
+            <option value="looking for a family">Looking for a family</option>
+            <option value="adopted">Adopted</option>
         </select>
-   <button type="submit"><a href="/pet/my-pets">Submit</a></button>
+   <button type="submit">Submit</button>
 </form>

@@ -23,7 +23,10 @@ const PetSchema = new Schema({
     city: String,
     phone: String,
     name: String,
-    status: Boolean,
+    status: {
+        type: String,
+        enum: ["looking for a family", "adopted"]
+    },
     //user: ObjectId,
     
 },{

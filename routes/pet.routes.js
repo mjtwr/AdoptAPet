@@ -9,15 +9,19 @@ const User = require("../models/User.model");
 
 
 router.get("/new",(req,res)=>{
-	res.render("create-pet")
+	res.render("create-pet",req.session.user)
 });
 
 router.post("/new", (req, res, next)=>{
 	const {petname, pet, dob, size, personality, sociability, city, name, phone, status} = req.body
-	return Pet.create({
-		petname, pet, dob, size, personality, sociability, city, name, phone, status
-	})
 	console.log("PETS====", req.body)
+	Pet.create({
+		petname, pet, dob, size, personality, sociability, city, name, phone, status
+	}).then((result)=>{
+		console.log(result)
+		 res.redirect("/pet/my-pets")
+		}).catch ((err)=> console.log(err))
+	
 
 }) 
 
