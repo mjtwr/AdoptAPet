@@ -1,5 +1,20 @@
-<h2>Signup</h2>
+<script>
+	document.title="Signup"
+</script>
+
+<style>
+	.signup{
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+</style>
+
+
   <form action="/auth/signup" method="POST">
+<div class="signup">
+<h2>Signup</h2>
  
     <label>
       <input type="text" name="firstName" placeholder="First Name" />
@@ -10,7 +25,7 @@
     </label>
  
     <label> 
-      <input type="date" name="Age"  />
+      <input type="text" name="Age" class="age" placeholder="dd/mm/yy"/>
     </label>
 
 		<label for=""> 
@@ -33,7 +48,9 @@
 			<input type="password" name="password" placeholder="********">
 		</label>
 
-    <button type="submit">Create account</button>
+    <button type="submit" class="btnHome-signup">Create account</button>
+		</form>
 {{#if errorMessage}}
    {{errorMessage}}
 {{/if}}
+</div>
