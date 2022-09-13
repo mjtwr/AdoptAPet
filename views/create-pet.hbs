@@ -1,50 +1,53 @@
-<form action="/pet/new" method="POST">
-   <label> Pet's Name
-      <input type="text" name="petname"  placeholder="Michi">
-   </label>
-    <label for="pets">Type of Pet</label>
-    <select id="pet" name="pet" class="form-select" aria-label="Default select example">
-  <option selected>Select your pet</option>
-  <option value="dog">Dog</option>
-  <option value="cat">Cat</option>
-</select>
-        <select id="pet" name="pet">
+<form action="/pet/new" method="POST" >
+    <div class="mb-3">
+        <label class="form-label"> Pet's Name
+            <input type="text" name="petname"  placeholder="Michi" class="form-control">
+        </label>
+        <label for="pets" class="form-label">Type of Pet</label>
+        <select id="pet" name="pet" class="form-select form-control" aria-label="Default select example">
+            <option selected>Select your pet</option>
             <option value="dog">Dog</option>
             <option value="cat">Cat</option>
         </select>
-    <label> Date of Birth
-      <input type="date" name="dob">
-   </label>
-    <label for="size">Size</label>
-        <select id="size" name="size">
+        <label class="form-label"> Date of Birth
+            <input type="date" name="dob" class="form-control">
+        </label>
+        <label for="size" class="form-label">Size</label>
+        <select id="size" name="size" class="form-select form-control" aria-label="Default select example">
+            <option selected>What's your pet's size?</option>
             <option value="small">Small</option>
             <option value="medium">Medium</option>
             <option value="big">Big</option>
         </select>
-    <label for="personality">Personality</label>
-        <select id="personality" name="personality">
+        <label for="personality" class="form-label">Personality</label>
+        <select id="personality" name="personality" class="form-select form-control" aria-label="Default select example">
+            <option selected>What's your pet's personality?</option>
             <option value="playful">Playful</option>
             <option value="energetic">Energetic</option>
             <option value="relaxed">Relaxed</option>
         </select>
-   <label for="sociability">Sociability</label>
-        <select id="sociability" name="sociability">
-            <option value="sociable">Sociable</option>
-            <option value="no sociable">Not very sociable</option>
-        </select>
-    <label> City
-      <input type="text" name="city" placeholder="CDMX">
-   </label>
-    <label> Phone
-      <input type="text" name="phone"  placeholder="555 5555 555">
-   </label>
-   <label> Name
-      <input type="text" name="name"  placeholder="Your name">
-   </label>
- <label for="status">Status</label>
-        <select id="status" name="status">
-            <option value="looking for a family">Looking for a family</option>
-            <option value="adopted">Adopted</option>
-        </select>
-   <button type="submit">Submit</button>
+        <label for="sociability" class="form-label">Sociability</label>
+        <select id="sociability" name="sociability" class="form-select form-control" aria-label="Default select example">
+            <option selected>Is your pet sociable?</option>
+            <option value="sociable">Yes, very sociable</option>
+            <option value="no sociable">Nope, he's better off alone</option>
+        </select>  
+        <label for="status" class="form-label">Status</label> 
+        <select id="status" name="status" class="form-select form-control" aria-label="Default select example">
+            <option selected>Looking for a familiy</option>
+            <option value="looking for a family">Yes, we're looking for a family</option>
+            <option value="adopted">Adopted ♥</option> {{!--solo aparece cuando hacemos update--}}
+        </select>     
+        <label class="form-label"> City
+            <input type="text" name="city" placeholder="CDMX" class="form-control">
+        </label>
+        <label class="form-label"> Phone
+            <input type="text" name="phone"  placeholder="555 5555 555" class="form-control">
+        </label>
+        <label class="form-label"> Name
+            <input type="text" name="name"  placeholder="Your name" class="form-control">
+        </label>
+
+        <button type="submit">Submit</button>
+   </div>
 </form>
