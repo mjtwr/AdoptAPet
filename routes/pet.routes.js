@@ -57,9 +57,13 @@ router.get("/wall",(req,res)=>{
 	})
 });
 
-//Probablemente cambiemos quiz a otra ruta
-router.get("/quiz",(req,res)=>{
-	res.render("quiz")
+//Quiz
+//router.post
+router.get("/quiz-results",(req,res)=>{
+	Pet.find().then((pets)=>{
+		//console.log(pets)
+		res.render("../views/quizResults", {pets : pets});
+	})
 })
 
 module.exports = router;
