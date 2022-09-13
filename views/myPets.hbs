@@ -1,16 +1,31 @@
+<style>
+	.body-wall{
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-around;
+		margin: 10px;
+	}
+	.card{
+		margin: .8%;
+	}
+	.card-img-top{
+		height: 60%;
+		width: 70%;
+		margin-left: 15%;
 
-<h1>my pets</h1>
+	}
+</style>
 
+<h1>My pets</h1>
+<div class="body-wall">
 {{#each pets}}
-//user.id === id pet
-<div>
-    <h3>{{petname}}</h3>
-    <p>
-        {{pet}}
-    </p>
-    <p>
-        {{status}}
-    </p>
-		<a href="/pet/my-pets/{{_id}}">Meet me</a>
+<div class="card" style="width: 18rem;">
+  <img src="{{photo}}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{petname}}</h5>
+    <p class="card-text">{{pet}}<br>{{status}}</p>
+		<a href="/pet/my-pets/{{_id}}" class="btn btn-primary">Meet me</a>
+  </div>
 </div>
 {{/each}}
+</div>
