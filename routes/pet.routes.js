@@ -81,6 +81,10 @@ router.get("/post",(req,res)=>{
 	res.render("createPost")
 });
 
+router.get("/community",(req,res)=>{
+	res.render("community")
+})
+
 
 router.post("/post", (req,res, next) =>{
 	const {petname,name, comment, image, adoptionDate} = req.body
