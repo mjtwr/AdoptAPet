@@ -36,9 +36,10 @@ body {
   border:0px;
   padding: 10px 50px;
   color:white;
-  background-color:#9900d1;
+  background-color:#d100a7;
   box-shadow:8px 8px 0 rgba(251,59,73,.2);
   text-decoration:none;
+  border-radius: 5px;
 }
 .header{
   display: flex;
@@ -104,11 +105,11 @@ background-image: url("/images/paws.jpg");
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: 2px solid black;
-  background-color: #00D1B5;
+  background-color: #20bbf3;
   border-radius: 10%;
   padding: 30px 10px;
   padding-top: 20px;
+  box-shadow: 14px 14px 20px #cbced1, -14px -14px 20px white;
 }
 
 .home3 p {
@@ -133,7 +134,7 @@ background-image: url("/images/paws.jpg");
 nav{
   
   background-image:url("/images/paws2.png");
-  opacity: 0.7;
+  opacity: 0.8;
   background-position: 0px 425px; 
   background-size: 200px;
   
@@ -190,7 +191,7 @@ nav{
   margin-top: 10px;
   font-weight: 900;
   font-size: 1.8rem;
-  color: #1DA1F2;
+  color: #d100a7;
   letter-spacing: 1px;
 }
 
@@ -233,7 +234,7 @@ nav{
 .inputsLogIn button {
   color: white;
   margin-top: 20px;
-  background: #1DA1F2;
+  background: #d100a7;
   height: 40px;
   border-radius: 20px;
   cursor: pointer;
@@ -244,4 +245,70 @@ nav{
 
 .inputsLogIn button :hover {
   box-shadow: none;
+}
+
+.information h3{
+  font-weight: 700;
+  font-size: 60px;
+  padding-top: 40px;
+  background-image: url("/images/paws.jpg");
+  background-size: 200px;
+  background-repeat: repeat;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  text-shadow: #020819 7px 0px 8px;
+}
+
+.information h2{
+  font-size: 90px;
+  padding-top: 40px;
+  padding-bottom: 70px;
+  background-image: url("/images/paws.jpg");
+  background-size: 200px;
+  background-repeat: repeat;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  text-shadow: #020819 7px 0px 8px;
+}
+
+.paw3{
+  height: 80px;
+} 
+
+.divide{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+hr {
+  width: 80%;
+  height: 7px;
+  border: 0 none;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 80px;
+  margin-bottom:90px;
+  background-color:black;
+}
+
+.middle{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.adopt1 {
+  height: 40vh;
+}
+
+.adopt2 {
+  height: 33vh;
+}
+
+.information p{
+  padding-top: 17px;
+  padding-bottom: 17px;
 }
