@@ -1,53 +1,161 @@
-<form action="/pet/new" method="POST" >
-    <div class="mb-3">
-        <label class="form-label"> Pet's Name
-            <input type="text" name="petname"  placeholder="Michi" class="form-control">
-        </label>
-        <label for="pets" class="form-label">Type of Pet</label>
-        <select id="pet" name="pet" class="form-select form-control" aria-label="Default select example">
-            <option selected>Select your pet</option>
-            <option value="dog">Dog</option>
-            <option value="cat">Cat</option>
-        </select>
-        <label class="form-label"> Date of Birth
-            <input type="date" name="dob" class="form-control">
-        </label>
-        <label for="size" class="form-label">Size</label>
-        <select id="size" name="size" class="form-select form-control" aria-label="Default select example">
-            <option selected>What's your pet's size?</option>
-            <option value="small">Small</option>
-            <option value="medium">Medium</option>
-            <option value="big">Big</option>
-        </select>
-        <label for="personality" class="form-label">Personality</label>
-        <select id="personality" name="personality" class="form-select form-control" aria-label="Default select example">
-            <option selected>What's your pet's personality?</option>
-            <option value="playful">Playful</option>
-            <option value="energetic">Energetic</option>
-            <option value="relaxed">Relaxed</option>
-        </select>
-        <label for="sociability" class="form-label">Sociability</label>
-        <select id="sociability" name="sociability" class="form-select form-control" aria-label="Default select example">
-            <option selected>Is your pet sociable?</option>
-            <option value="sociable">Yes, very sociable</option>
-            <option value="no sociable">Nope, he's better off alone</option>
-        </select>  
-        <label for="status" class="form-label">Status</label> 
-        <select id="status" name="status" class="form-select form-control" aria-label="Default select example">
-            <option selected>Looking for a familiy</option>
-            <option value="looking for a family">Yes, we're looking for a family</option>
-            <option value="adopted">Adopted ♥</option> {{!--solo aparece cuando hacemos update--}}
-        </select>     
-        <label class="form-label"> City
-            <input type="text" name="city" placeholder="CDMX" class="form-control">
-        </label>
-        <label class="form-label"> Phone
-            <input type="text" name="phone"  placeholder="555 5555 555" class="form-control">
-        </label>
-        <label class="form-label"> Name
-            <input type="text" name="name"  placeholder="Your name" class="form-control">
-        </label>
+<style>
+    .form-new-pet{
+        margin: 5% 10% ;
+        padding: 30px 20px;
+        background-color: #6b94f4;
+        border-radius: 25px;
+    }
+    .containerLogIn-create-pet {
+  
+        margin:  6% 10%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+        border-radius: 20px;
+        padding: 20px 20px 20px 40px;
+        box-sizing: border-box;
+        background: linear-gradient(195deg, rgba(230,229,13,1) 0%, rgba(105,197,251,1) 100%);
+        box-shadow: 14px 14px 20px #cbced1, -14px -14px 20px white;
+}
+    .div-new-pet{
+        display: flex;
+        align-content: space-between;
+    }
+    .div-new-pet-fields{
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        border-radius: 25px;
+    }
+    .field-create-pet{
+        margin: 5px 15px;
+        width: fit-content;
+    }
+    .label-create-pet{
+        font-weight: bold;
+    }
+    .h1-create-pet{
+        color: #000000;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    .image-create-pet{
+        border-radius: 5px;
+        width: 80%;
+    }
+    .btn-create-pet{
+        background: linear-gradient(to bottom right, #EF4765, #FF9A5A);
+        border: 0;
+        border-radius: 12px;
+        color: #FFFFFF;
+        cursor: pointer;
+        display: inline-block;
+        font-family: -apple-system,system-ui,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+        font-size: 17px;
+        font-weight: 500;
+        line-height: 2.5;
+        outline: transparent;
+        padding: 0 1rem;
+        text-align: center;
+        text-decoration: none;
+        transition: box-shadow .2s ease-in-out;
+        user-select: none;
+        -webkit-user-select: none;
+        touch-action: manipulation;
+        white-space: nowrap;
+}
 
-        <button type="submit" class="btnHome-signup">Submit</button>
+.btn-create-pet:not([disabled]):focus {
+  box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5), .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+}
+
+.btn-create-pet2:not([disabled]):hover {
+  box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5), .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+}
+    
+</style>
+<form action="/pet/new" method="POST" >
+    
+    <div class="containerLogIn-create-pet" >
+        <h1 class="h1-create-pet">Let's find a home </h1> 
+        <div class="div-new-pet">
+             <div>
+                 <image class="image-create-pet" src="/images/adopt-create-pet-01.png" alt=""/>
+            </div>
+            <div class="div-new-pet-fields" >
+            <div class="field-create-pet">
+                <label class="form-label label-create-pet"> Pet's Name
+                    <input type="text" name="petname"  placeholder="Michi" class="form-control input-new-pet">
+                </label>
+            </div>
+            <div class="field-create-pet">
+                <label for="pets" class="form-label label-create-pet">Type of Pet</label>
+                <select id="pet" name="pet" class="form-select form-control" aria-label="Default select example">
+                    <option selected>Select your pet</option>
+                    <option value="dog">Dog</option>
+                    <option value="cat">Cat</option>
+                </select>
+            </div>
+            <div class="field-create-pet">
+                <label class="form-label label-create-pet"> Date of Birth
+                    <input type="date" name="dob" class="form-control">
+                </label>
+            </div>
+            <div class="field-create-pet">
+                <label for="size" class="form-label label-create-pet">Size</label>
+                <select id="size" name="size" class="form-select form-control" aria-label="Default select example">
+                    <option selected>What's your pet's size?</option>
+                    <option value="small">Small</option>
+                    <option value="medium">Medium</option>
+                    <option value="big">Big</option>
+                </select>
+            </div>
+            <div class="field-create-pet">
+                <label for="personality" class="form-label label-create-pet">Personality</label>
+                <select id="personality" name="personality" class="form-select form-control" aria-label="Default select example">
+                    <option selected>What's your pet's personality?</option>
+                    <option value="playful">Playful</option>
+                    <option value="energetic">Energetic</option>
+                    <option value="relaxed">Relaxed</option>
+                </select>
+            </div>
+            <div class="field-create-pet">
+                <label for="sociability" class="form-label label-create-pet">Sociability</label>
+                <select id="sociability" name="sociability" class="form-select form-control" aria-label="Default select example">
+                    <option selected>Is your pet sociable?</option>
+                    <option value="sociable">Yes, very sociable</option>
+                    <option value="no sociable">Nope, he's better off alone</option>
+                </select>  
+            </div>
+            <div class="field-create-pet">
+                <label for="status" class="form-label label-create-pet">Status</label> 
+                <select id="status" name="status" class="form-select form-control" aria-label="Default select example">
+                    <option selected>Looking for a familiy</option>
+                    <option value="looking for a family">Yes, we're looking for a family</option>
+                    <option value="adopted">Adopted ♥</option> {{!--solo aparece cuando hacemos update--}}
+                </select>  
+            </div>   
+            <div class="field-create-pet">
+                <label class="form-label label-create-pet"> City
+                    <input type="text" name="city" placeholder="CDMX" class="form-control">
+                </label>
+            </div>
+            <div class="field-create-pet">
+                <label class="form-label label-create-pet"> Phone
+                    <input type="text" name="phone"  placeholder="555 5555 555" class="form-control">
+                </label>
+            </div>
+            <div class="field-create-pet">
+                <label class="form-label label-create-pet"> Name
+                    <input type="text" name="name"  placeholder="Your name" class="form-control">
+                </label>
+            </div>
+
+            <button type="submit" class="btn-create-pet" role="button"">Submit</button>
+           
+        </div>
+        </div>
+        
    </div>
 </form>
