@@ -1,13 +1,47 @@
-<h1>wall</h1>
+<script>document.title="Wall of Pets"</script>
+<style>
+	.containerLogIn-pet-wall {
+  
+        margin:  6% 10%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+        border-radius: 20px;
+        padding: 20px 20px 20px 40px;
+        box-sizing: border-box;
+        background: linear-gradient(195deg, rgba(230,229,13,1) 0%, rgba(105,197,251,1) 100%);
+        box-shadow: 14px 14px 20px #cbced1, -14px -14px 20px white;
+}
+	.body-wall{
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-around;
+		margin: 10px;
+	}
+	.card{
+		margin: .8%;
+		background-color: blue;
+	}
+	.card-img-top{
+		height: 60%;
+		width: 70%;
+		margin-left: 15%;
+		margin-top: 5%;
+
+	}
+</style>
+
+<h1>Wall</h1>
+<div class="body-wall">
 {{#each pets}}
-<div>
-    <h3>{{petname}}</h3>
-    <p>
-        {{pet}}
-    </p>
-    <p>
-        {{status}}
-    </p>
+<div class="containerLogIn-pet-wall" style="width: 18rem;">
+  <img src="{{photo}}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{petname}}</h5>
+    <p class="card-text">{{pet}}<br>{{status}}</p>
+		<a href="/pet/wall/{{_id}}" class="btnHome-signup">Meet me</a>
+  </div>
 </div>
-<button href="/views/petdetails.hbs" >Meet me</button>
 {{/each}}
+</div>

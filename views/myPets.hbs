@@ -1,11 +1,23 @@
 <script>document.title="Wall of Pets"</script>
 <style>
+	.containerLogIn-pet-wall {
+  
+        margin:  6% 10%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+        border-radius: 20px;
+        padding: 20px 20px 20px 40px;
+        box-sizing: border-box;
+        background: linear-gradient(195deg, rgba(230,229,13,1) 0%, rgba(105,197,251,1) 100%);
+        box-shadow: 14px 14px 20px #cbced1, -14px -14px 20px white;
+}
 	.body-wall{
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: space-around;
 		margin: 10px;
-		background-color: aqua;
 	}
 	.card{
 		margin: .8%;
@@ -23,7 +35,7 @@
 <h1>My pets</h1>
 <div class="body-wall">
 {{#each pets}}
-<div class="card" style="width: 18rem;">
+<div class="containerLogIn-pet-wall" style="width: 18rem;">
   <img src="{{photo}}" class="card-img-top" alt="...">
   <div class="card-body">
     <h5 class="card-title">{{petname}}</h5>

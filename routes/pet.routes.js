@@ -43,6 +43,13 @@ router.get("/my-pets/:id", (req, res)=>{
 		}) 	
 })
 
+router.get("/wall/:id", (req, res)=>{
+	Pet.findById(req.params.id).then((pet)=>{
+	 console.log(req.params.id)
+	 res.render("../views/petdetails.hbs", pet)
+	 }) 	
+})
+
 router.get("/wall",(req,res)=>{
 	Pet.find().then((pets)=>{
 		//console.log(pets)
