@@ -1,10 +1,13 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema
 
-const Pet = require("Pet")
+//const Pet = require("Pet")
 
 const QuizSchema = new Schema({
-    
+    pet: {
+        type: String,
+        enum: ["dog", "cat"]
+    },
     size: {
         type: String,
         enum: ["small","medium", "big"]
@@ -17,14 +20,17 @@ const QuizSchema = new Schema({
         type: String,
         enum: ["sociable","no sociable"]
     },
-    pets: [Pet]// {
+   // pets: [Pet]// {
        // type: String,
         //enum:["dog", "cat"] //id?? Pet Model??
     //}
-    ,
-    timestamps: true,
-    user: objectId,
-});
+    //,
+   
+    user: {
+        type: Schema.ObjectId,
+        ref: "User"
+    },
+}, { timestamps: true,});
 
 const Quiz = mongoose.model("Quiz", QuizSchema)
 

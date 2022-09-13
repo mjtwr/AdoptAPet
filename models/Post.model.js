@@ -5,10 +5,12 @@ const PostSchema = new Schema({
     petname: String,
     name: String,
     comment: String,
-    timestamps: true,
-    image: String
-});
+    
+    image: String,
+    adoptionDate: Date
+},{timestamps: true}
+);
 
-const Pet = mongoose.model("Post", PostSchema);
+const Post = mongoose.model("Post", PostSchema);
 
 module.exports = Post;

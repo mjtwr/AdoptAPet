@@ -1,0 +1,112 @@
+<style>
+    .form-new-pet{
+        margin: 5% 10% ;
+        padding: 30px 20px;
+        background-color: #6b94f4;
+        border-radius: 25px;
+    }
+    .containerLogIn-create-pet {
+  
+        margin:  6% 10%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+        border-radius: 20px;
+        padding: 20px 20px 20px 40px;
+        box-sizing: border-box;
+        background:linear-gradient(90deg, rgba(121,217,255,1) 0%, rgba(209,0,167,1) 100%);
+        box-shadow: 14px 14px 20px #cbced1, -14px -14px 20px white;
+}
+    .div-new-pet{
+        display: flex;
+        align-content: space-between;
+    }
+    .div-new-pet-fields{
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        border-radius: 25px;
+    }
+    .field-create-pet{
+        margin: 5px 15px;
+        width: fit-content;
+    }
+    .label-create-pet{
+        font-weight: bold;
+    }
+    .h1-create-pet{
+        color: #000000;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    .image-create-pet{
+        border-radius: 5px;
+        width: 80%;
+    }
+    .btn-create-pet{
+        background: linear-gradient(to bottom right, #EF4765, #FF9A5A);
+        border: 0;
+        border-radius: 12px;
+        color: #FFFFFF;
+        cursor: pointer;
+        display: inline-block;
+        font-family: -apple-system,system-ui,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+        font-size: 17px;
+        font-weight: 500;
+        line-height: 2.5;
+        outline: transparent;
+        padding: 0 1rem;
+        text-align: center;
+        text-decoration: none;
+        transition: box-shadow .2s ease-in-out;
+        user-select: none;
+        -webkit-user-select: none;
+        touch-action: manipulation;
+        white-space: nowrap;
+}
+
+.btn-create-pet:not([disabled]):focus {
+  box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5), .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+}
+
+.btn-create-pet2:not([disabled]):hover {
+  box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5), .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+}
+    
+</style>
+<form action="/pet/post" method="POST" >
+    
+    <div class="containerLogIn-create-pet" >
+        <h1 class="h1-create-pet">Post one of your best moments with your friend </h1> 
+        <div class="div-new-pet">
+             <div>
+                 <image class="image-create-pet" src="/images/adopt-create-pet-01.png" alt=""/>
+            </div>
+            <div class="div-new-pet-fields" >
+            <div class="field-create-pet">
+                <label class="form-label label-create-pet"> Pet's Name
+                    <input type="text" name="petname"  placeholder="Michi" class="form-control input-new-pet">
+                </label>
+            </div>
+            <div class="field-create-pet">
+                <label class="form-label label-create-pet"> Date of Adoption
+                    <input type="date" name="adoptionDate" class="form-control">
+                </label>
+            </div> 
+            <div class="field-create-pet">
+                <label class="form-label label-create-pet"> Name
+                    <input type="text" name="name"  placeholder="Your name" class="form-control">
+                </label>
+            </div>
+            <div>
+                <img src="/images/rodrigo.jpg" alt="">
+            </div>
+
+            <button type="submit" class="btnHome-signup" role="button">Submit</button>
+           
+        </div>
+        </div>
+        
+   </div>
+</form>
