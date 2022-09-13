@@ -1,10 +1,10 @@
-<script>document.title="Wall of Pets"</script>
+<script>document.title="My Pets"</script>
 <style>
 	.containerLogIn-pet-wall {
-  
-        margin:  6% 10%;
+        height: 12%;
+        margin:3%;
         display: flex;
-        flex-direction: column;
+        flex-wrap: wrap;
         align-items: center;
         position: relative;
         border-radius: 20px;
@@ -12,35 +12,34 @@
         box-sizing: border-box;
         background: linear-gradient(195deg, rgba(230,229,13,1) 0%, rgba(105,197,251,1) 100%);
         box-shadow: 14px 14px 20px #cbced1, -14px -14px 20px white;
-	}
+}
 	.body-wall{
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: space-around;
 		margin: 10px;
 	}
-	.card{
-		margin: .8%;
-		background-color: blue;
-	}
-	.card-img-top{
+	.card-img-top-wall{
 		height: 60%;
 		width: 70%;
 		margin-left: 15%;
 		margin-top: 5%;
+		}
 
-	}
+		.card-body-wall{
+			margin-top: 0;
+		}
 </style>
 
-<h1>My pets</h1>
+<h1>My Pets</h1>
 <div class="body-wall">
 {{#each pets}}
 <div class="containerLogIn-pet-wall" style="width: 18rem;">
-  <img src="{{photo}}" class="card-img-top" alt="...">
-  <div class="card-body">
+  <img src="{{photo}}" class="card-img-top-wall" alt="...">
+  <div class="card-body-wall">
     <h5 class="card-title">{{petname}}</h5>
     <p class="card-text">{{pet}}<br>{{status}}</p>
-		<a href="/pet/my-pets/{{_id}}" class="btnHome-signup">Meet me</a>
+		<a href="/pet/wall/{{_id}}" class="btnHome-signup">Meet me</a>
   </div>
 </div>
 {{/each}}
