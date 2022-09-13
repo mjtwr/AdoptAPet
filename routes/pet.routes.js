@@ -9,13 +9,18 @@ const Post = require("../models/Post.model");
 const Quiz = require("../models/Quiz.model");
 
 
-router.get("/new",(req,res)=>{
+const isLoggedOut = require("../middleware/isLoggedOut");
+const isLoggedIn = require("../middleware/isLoggedIn");
+
+
+
+router.get("/new",isLoggedIn,(req,res)=>{
 	res.render("create-pet",req.session.user)
 });
 
 
 //form
-router.post("/new", (req, res, next)=>{
+router.post("/new", isLoggedIn, (req, res, next)=>{
 	const {petname, pet, dob, size, personality, sociability, city, name, phone, status} = req.body
 	//console.log("PETS====", req.body)
 	Pet.create({
@@ -25,11 +30,10 @@ router.post("/new", (req, res, next)=>{
 		 res.redirect("/pet/my-pets")
 		}).catch ((err)=> console.log(err))
 	
-
 }) 
 
 //View My Pets in Adoption
-router.get("/my-pets",(req,res)=>{
+router.get("/my-pets",isLoggedIn,(req,res)=>{
 	Pet.find().then((pets)=>{
 		//console.log(pets)
 		res.render("../views/myPets", {pets : pets});
@@ -37,12 +41,13 @@ router.get("/my-pets",(req,res)=>{
 });
 
 //view pet details
-router.get("/my-pets/:id", (req, res)=>{
+router.get("/my-pets/:id", isLoggedIn,(req, res)=>{
 	 Pet.findById(req.params.id).then((pet)=>{
 		console.log(req.params.id)
 		res.render("../views/petdetails.hbs", pet)
 		}) 	
 })
+
 
 router.get("/wall/:id", (req, res)=>{
 	Pet.findById(req.params.id).then((pet)=>{
@@ -61,7 +66,7 @@ router.get("/wall",(req,res)=>{
 //Quiz
 //router.post
 
-router.get("/quiz",(req,res)=>{
+router.get("/quiz",isLoggedIn,(req,res)=>{
 		res.render("../views/quiz");
 	});
 

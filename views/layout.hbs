@@ -23,7 +23,24 @@
           <li class="nav-item">
             <a class="nav-link" aria-current="page" href="/"  style="color: #fff"><img class="logo2" src="/images/adopt-a-pet-logo-2.png"/></a>
           </li>
+           <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #fff;">
+          Adopt
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="/pet/wall">Wall of Adoption</a>
+          <a class="dropdown-item" href="/pet/quiz">Pet Match</a>
+        </div>
+        </li>
+        
+          
           {{#if email}}
+          <li class="nav-item">
+            <a class="nav-link" href="/pet/new" style="color: #fff;">Post a Pet</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/pet/my-pets" style="color: #fff;">My Pets</a>
+          </li>
           <li class="nav-item">
             <a class="nav-link" href="/auth/logout" style="color: #fff;">Logout</a>
           </li>
@@ -36,20 +53,7 @@
             <a class="nav-link" href="/auth/signup" style="color: #fff;">Sign Up</a>
           </li>
           {{/unless}}
-          <li class="nav-item">
-            <a class="nav-link" href="/pet/my-pets" style="color: #fff;">My Pets</a>
-          </li>
-          <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #fff;">
-          Adopt
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="/pet/wall">Wall of Adoption</a>
-          <a class="dropdown-item" href="/pet/quiz">Pet Match</a>
-        </div>
-        </li>
-        
-{{!--           
+{{!--
         {{#unless email}}
           <li class="nav-item">
             <a class="nav-link" href="/auth/login">Login</a>
