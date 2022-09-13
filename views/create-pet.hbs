@@ -7,6 +7,10 @@
     }
     .div-new-pet{
         display: flex;
+        align-content: space-between;
+    }
+    .div-new-pet-fields{
+        display: flex;
         flex-wrap: wrap;
         align-items: center;
         border-radius: 25px;
@@ -21,12 +25,17 @@
         display: flex;
 
     }
+    .image-create-pet{
+        border-radius: 25px;
+        width: 80%;
+    }
 </style>
 <form action="/pet/new" method="POST" >
     
     <div class="form-new-pet" >
         <h1 class="h1-create-pet">Let's find a home♥</h1> 
-            <div class="div-new-pet" >
+        <div class="div-new-pet">
+            <div class="div-new-pet-fields" >
             <div class="field-create-pet">
                 <label class="form-label label-create-pet"> Pet's Name
                     <input type="text" name="petname"  placeholder="Michi" class="form-control input-new-pet">
@@ -99,7 +108,8 @@
            
     </div>
     <div>
-        <image src="../public/images/antonio.jpg" alt=""/>
+        <image class="image-create-pet" src="/images/adopt-create-pet-01.png" alt=""/>
+    </div>
     </div>
    </div>
 </form>
