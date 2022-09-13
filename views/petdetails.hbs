@@ -1,5 +1,21 @@
-<h1>Pet details</h1>
-<div>
+<script>document.title=`{{petname}} Details`</script>
+<style>
+	.img-thumbnail{
+		width: 25%;
+		height: 25%;
+	}
+	.petdetails{
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+</style>
+<link rel="icon" type="" href="">
+<h1>{{petname}} details</h1>
+<div class="petdetails">
+	<div>
+		<img src="{{photo}}" alt="" class="img-thumbnail rounded mx-auto d-block">
+	</div>
     <h3>{{petname}}</h3>
     <p>
         {{pet}}
@@ -16,7 +32,7 @@
     <p>
         {{sociability}}
     </p>
-    <h3>Contact Information</h3>
+    <h4>Contact Information</h4>
     <p>
         {{name}}
     </p>
@@ -29,5 +45,5 @@
     <p>
         {{status}}
     </p>
-		<a href="/pet/my-pets/" >Go back</a>
+		<a href="/pet/my-pets/" class="btnHome-signup" >Go back</a>
 </div>

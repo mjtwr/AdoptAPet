@@ -1,3 +1,4 @@
+<script>document.title="Wall of Pets"</script>
 <style>
 	.body-wall{
 		display: flex;
@@ -12,6 +13,7 @@
 		height: 60%;
 		width: 70%;
 		margin-left: 15%;
+		margin-top: 5%;
 
 	}
 </style>
@@ -24,7 +26,7 @@
   <div class="card-body">
     <h5 class="card-title">{{petname}}</h5>
     <p class="card-text">{{pet}}<br>{{status}}</p>
-		<a href="/pet/my-pets/{{_id}}" class="btn btn-primary">Meet me</a>
+		<a href="/pet/my-pets/{{_id}}" class="btnHome-signup">Meet me</a>
   </div>
 </div>
 {{/each}}
