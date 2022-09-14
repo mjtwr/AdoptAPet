@@ -21,30 +21,40 @@ router.get("/new",isLoggedIn,(req,res)=>{
 
 //form
 router.post("/new", isLoggedIn, (req, res, next)=>{
-	const {petname, pet, dob, size, personality, sociability, city, name, phone, status} = req.body
-	//console.log("PETS====", req.body)
+	const {petname, pet, dob, size, personality, sociability, city, name, phone, status, user} = req.body
+	console.log("PETS====", req.body)
 	Pet.create({
-		petname, pet, dob, size, personality, sociability, city, name, phone, status
+		petname, pet, dob, size, personality, sociability, city, name, phone, status, user: req.session.user._id,
 	}).then((result)=>{
-		//console.log(result)
-		 res.redirect("/pet/my-pets")
+		// console.log("USERID", req.session.user._id)
+		// console.log(result)
+		User.findByIdAndUpdate(req.session.user._id, { $push: { pets: result._id }})
+		.then(()=>{
+			res.redirect("/pet/my-pets")
+		})
 		}).catch ((err)=> console.log(err))
 	
 }) 
 
 //View My Pets in Adoption
 router.get("/my-pets",isLoggedIn,(req,res)=>{
-	Pet.find().then((pets)=>{
-		//console.log(pets)
-		res.render("../views/myPets", {pets : pets});
+	// Pet.find().then((pets)=>{
+	// 	console.log(pets)
+	// 	res.render("myPets", {pets : pets});
+	// })
+	User.findById(req.session.user._id, "pets")
+	.populate("pets")
+	.then((pets) => {
+		res.render("myPets", {pets});
 	})
+	.catch ((err) => console.log(err))
 });
 
 //view pet details
 router.get("/my-pets/:id", isLoggedIn,(req, res)=>{
 	 Pet.findById(req.params.id).then((pet)=>{
 		console.log(req.params.id)
-		res.render("../views/petdetails.hbs", pet)
+		res.render("petdetails", pet)
 		}) 	
 })
 
@@ -52,7 +62,7 @@ router.get("/my-pets/:id", isLoggedIn,(req, res)=>{
 router.get("/wall/:id", (req, res)=>{
 	Pet.findById(req.params.id).then((pet)=>{
 	 console.log(req.params.id)
-	 res.render("../views/petdetails.hbs", pet)
+	 res.render("petdetails", pet)
 	 }) 	
 })
 
@@ -67,11 +77,11 @@ router.get("/wall",(req,res)=>{
 //router.post
 
 router.get("/quiz",isLoggedIn,(req,res)=>{
-		res.render("../views/quiz");
+		res.render("../views/quiz",req.session.user);
 	});
 
 	router.get("/quiz-results",isLoggedIn,(req,res)=>{
-		res.render("../views/quizResults");
+		res.render("../views/quizResults", req.session.user);
 	});
 
 
@@ -88,11 +98,11 @@ router.post("/quiz", (req,res, next) =>{
 
 //POSTS - OUR COMMUNITY
 router.get("/post",isLoggedIn,(req,res)=>{
-	res.render("createPost")
+	res.render("createPost", req.session.user)
 });
 
 router.get("/community",(req,res)=>{
-	res.render("community")
+	res.render("community", req.session.user)
 })
 
 

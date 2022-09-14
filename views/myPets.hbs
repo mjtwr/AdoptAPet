@@ -54,9 +54,10 @@
 
 <h1 class="wallOfAdoption">My Pets</h1>
 <div class="body-wall">
+{{!-- {{#if _id}} --}}
 {{#each pets}}
 <div class="containerLogIn-pet-wall" style="width: 18rem;">
-  <img src="{{photo}}" class="card-img-top-wall" alt="...">
+  <img src="{{image}}" class="card-img-top-wall" alt="...">
   <div class="card-body-wall">
     <h5 class="card-title">{{petname}}</h5>
     <p class="card-text">{{pet}}<br>{{status}}</p>
@@ -64,4 +65,5 @@
   </div>
 </div>
 {{/each}}
+{{!-- {{/if}} --}}
 </div>

@@ -2,14 +2,41 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema
 
 const UserSchema= new Schema({
-    firstName: String,
-    lastName: String,
-    phone: String,
-    email: String,
-    username: String,
-    password:  String,
-    city: String
+    firstName: {
+        type: String,
+        required: true
+    },
+    lastName: {
+        type: String,
+        required: true
+    },
+    phone: {
+        type: String,
+        required: true
+    },
+    email:{
+        type: String,
+        required: true
+    },
+    username: {
+        type: String,
+        required: true
+    },
+    password:  {
+        type: String,
+        required: true
+    },
+    city: {
+        type: String,
+        required: true
+    },
+    pets: [{
+        type: Schema.Types.ObjectId,
+        ref: "Pet"
+    }]
     
+}, {
+    timestamps: true
 });
 
 const User = mongoose.model("User", UserSchema);
