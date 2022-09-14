@@ -133,10 +133,11 @@ background-image: url("/images/paws.jpg");
 
 nav{
   
-  background-image:url("/images/paws2.png");
-  opacity: 0.8;
-  background-position: 0px 425px; 
-  background-size: 200px;
+  /* background-image:url("/images/paws2.png"); */
+  background: radial-gradient(circle, rgba(209,0,167,1) 0%, rgba(102,0,82,1) 33%, rgba(0,0,0,1) 100%);
+  /* opacity: 0.8; */
+  /* background-position: 0px 425px; 
+  background-size: 200px; */
   
 }
 
