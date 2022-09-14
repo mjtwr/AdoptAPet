@@ -345,6 +345,7 @@ hr {
   flex-wrap: wrap;
   align-items: center;
   border-radius: 25px;
+	margin:5px 0px ;
 }
 .field-create-pet{
   margin: 5px 15px;
@@ -399,4 +400,8 @@ box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 
 
 .searching{
   padding-left: 30px;
+}
+
+.imageGoesHere{
+	border: 2px solid black;
 }
