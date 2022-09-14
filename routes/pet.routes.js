@@ -70,6 +70,11 @@ router.get("/quiz",isLoggedIn,(req,res)=>{
 		res.render("../views/quiz");
 	});
 
+	router.get("/quiz-results",isLoggedIn,(req,res)=>{
+		res.render("../views/quizResults");
+	});
+
+
 
 router.post("/quiz", (req,res, next) =>{
 	const {pet, size,personality, sociability} = req.body
