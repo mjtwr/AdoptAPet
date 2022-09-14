@@ -1,24 +1,30 @@
 <script>document.title=`{{petname}} Details`</script>
-
+<style>
+    .petId{
+        display: flex;
+        flex-wrap: wrap;
+    }
+</style>
 <link rel="icon" type="" href="">
 <div class="petdetails-card">
     <h1>{{petname}} details</h1>
-    <div class="div-new-pet">
+    <div class="div-new-pet petId">
 
     </div>
 	<div>
 		<img src="{{photo}}" alt="" class="img-thumbnail rounded mx-auto d-block">
+        <h3>{{petname}}</h3>
+        <p>
+            {{pet}}
+        </p>
+        <p>
+            {{dof}}
+        </p>
+        <p>
+            {{size}}
+        </p>
 	</div>
-    <h3>{{petname}}</h3>
-    <p>
-        {{pet}}
-    </p>
-    <p>
-        {{dof}}
-    </p>
-    <p>
-        {{size}}
-    </p>
+    <div>
     <p>
         {{personality}}
     </p>
@@ -38,5 +44,6 @@
     <p>
         {{status}}
     </p>
+    </div>
 		<a href="/pet/my-pets/" class="btnHome-signup" >Go back</a>
 </div>
