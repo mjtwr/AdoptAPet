@@ -44,8 +44,8 @@ router.get("/my-pets",isLoggedIn,(req,res)=>{
 	// })
 	User.findById(req.session.user._id, "pets")
 	.populate("pets")
-	.then((pets) => {
-		res.render("myPets", {pets});
+	.then((result) => {
+		res.render("myPets", {pets : result.pets});
 	})
 	.catch ((err) => console.log(err))
 });
