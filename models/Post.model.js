@@ -5,7 +5,6 @@ const PostSchema = new Schema({
     petname: String,
     name: String,
     comment: String,
-    
     image: String,
     adoptionDate: Date
 },{timestamps: true}
