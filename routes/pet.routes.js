@@ -87,7 +87,7 @@ router.post("/quiz", (req,res, next) =>{
 
 
 //POSTS - OUR COMMUNITY
-router.get("/post",(req,res)=>{
+router.get("/post",isLoggedIn,(req,res)=>{
 	res.render("createPost")
 });
 
@@ -96,7 +96,7 @@ router.get("/community",(req,res)=>{
 })
 
 
-router.post("/post", (req,res, next) =>{
+router.post("/post", isLoggedIn, (req,res, next) =>{
 	const {petname,name, comment, image, adoptionDate} = req.body
 	console.log(req.body)
 	Post.create({petname,name, comment, image, adoptionDate})
