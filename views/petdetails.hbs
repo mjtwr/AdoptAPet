@@ -9,42 +9,39 @@
         align-items: center;
     }
     .petdetails-card{
-        background-color: orangered;
+        {{!-- background-color: orangered; --}}
         display: flex;
-        {{!-- align-items: center; --}}
         justify-content:first baseline;
-        {{!-- border-radius: 20px; --}}
+         border-radius: 20px;
         padding: 20px 20px 20px 40px;
-        {{!-- box-sizing: border-box; --}}
-        {{!-- background:linear-gradient(90deg, rgba(121,217,255,1) 0%, rgba(209,0,167,1) 100%); --}}
-        {{!-- box-shadow: 14px 14px 20px #cbced1, -14px -14px 20px white; --}}
+         background:linear-gradient(90deg, rgba(121,217,255,1) 0%, rgba(209,0,167,1) 100%);
         width: 800px;
     }
     .petdetails-image > img {
         max-height: 100%;
         max-width: 100%;
+        margin-bottom: 5px;
     }
     .petdetails-photocard{
         display: block;
         width: 500px;
-        background-color: red;
+        {{!-- background-color: red; --}}
     }
    .petdetails-info{
         width: 100%;
-        padding-left: 50px;
-        padding-top: 100px;
-        background-color: green;
+        padding: 30px;
+        {{!-- background-color: green; --}}
     }
     .petname-petdetails{
         font-weight: bolder;
-        color: #cbced1;
+        {{!-- color: #cbced1; --}}
     }
     .petdetails-info-intro {
         font-size: larger;
-        background-color: blue;
+        {{!-- background-color: blue; --}}
     }
     .petdetails-contactinfo {
-        background-color: yellow;
+        {{!-- background-color: yellow; --}}
     }
     .goback {
         padding-top: 10px;
@@ -61,16 +58,17 @@
                     <img src="{{photo}}" alt="" >
                 </div>
                 <div >
-                    <h3>{{petname}}</h3>
+                    <h3>Hi! My name is {{petname}}</h3>
                     <p>{{pet}}</p>
                     <p>{{dof}}</p>
                 </div>
             </div>
         <div class="petdetails-info">
             <div class="petdetails-info-intro">
-                <p>{{size}}</p>
-                <p>{{personality}}</p>
-                <p>{{sociability}} </p>
+                <h3>Let me tell you a little bit more about myself:</h3>
+                <p>I'm a very pretty {{pet}}, I'm a {{size}} pet.</p>
+                <p>I have a very {{personality}} personality, perfect for us to be best friends c:</p>
+                <p>I am {{sociability}}, which is very important to consider in case you have kids or other pets.</p>
             </div>
             <div class="petdetails-contactinfo">
                 <h4>Contact Information</h4>
