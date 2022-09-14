@@ -7,8 +7,6 @@ const fileUploader = require("../config/cloudinary.config");
 const Pet = require("../models/Pet.model");
 const User = require("../models/User.model");
 const Post = require("../models/Post.model");
-const Quiz = require("../models/Quiz.model");
-
 
 const isLoggedOut = require("../middleware/isLoggedOut");
 const isLoggedIn = require("../middleware/isLoggedIn");
@@ -56,7 +54,7 @@ router.get("/my-pets",isLoggedIn,(req,res)=>{
 router.get("/my-pets/:id", isLoggedIn,(req, res)=>{
 	 Pet.findById(req.params.id).then((pet)=>{
 		console.log(req.params.id)
-		res.render("petdetails", pet)
+		res.render("petdetails", pet,req.session.user)
 		}) 	
 })
 

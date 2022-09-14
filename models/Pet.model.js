@@ -27,12 +27,6 @@ const PetSchema = new Schema({
         enum: ["sociable","no sociable"],
         required: true
     },
-    status: {
-        type: String,
-				default: "looking for a family",
-        enum: ["looking for a family", "adopted"],
-        required: true
-    },
 	image: String,
     user: {
         type: Schema.Types.ObjectId,
