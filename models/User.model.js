@@ -33,7 +33,12 @@ const UserSchema= new Schema({
     pets: [{
         type: Schema.Types.ObjectId,
         ref: "Pet"
-    }]
+    }],
+		matches: [{
+			type: Schema.Types.ObjectId,
+			ref: "Pet"
+	}],
+		
     
 }, {
     timestamps: true
