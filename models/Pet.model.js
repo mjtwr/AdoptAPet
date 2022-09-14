@@ -2,35 +2,53 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema
 
 const PetSchema = new Schema({
-    petname: String,
+    petname: {
+        type: String,
+        required: true
+    },
     pet: {
         type: String,
-        enum:["dog", "cat"]
+        enum:["dog", "cat"],
+        required: true
     },
     dob: Date, 
     size: {
         type: String,
         enum: ["small","medium", "big"],
+        required: true
     }, 
     personality: {
         type: String,
         enum: ["energetic", "playful", "relaxed"],
+        required: true
     }, 
     sociability: {
         type: String,
-        enum: ["sociable","no sociable"] ,
+        enum: ["sociable","no sociable"],
+        required: true
     },
-    city: String,
-    phone: String,
-    name: String,
+    city:  {
+        type: String,
+        required: true
+    },
+    phone:  {
+        type: String,
+        required: true
+    },
+    name:  {
+        type: String,
+        required: true
+    },
     status: {
         type: String,
-        enum: ["looking for a family", "adopted"]
+        enum: ["looking for a family", "adopted"],
+        required: true
     },
 	image: String,
     user: {
         type: Schema.Types.ObjectId,
-        ref: "User"
+        ref: "User",
+        required: true
     },
     
 },{

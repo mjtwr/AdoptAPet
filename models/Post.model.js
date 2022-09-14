@@ -2,11 +2,26 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema
 
 const PostSchema = new Schema({
-    petname: String,
-    name: String,
-    comment: String,
-    image: String,
-    adoptionDate: Date
+    petname:  {
+        type: String,
+        required: true
+    },
+    name:  {
+        type: String,
+        required: true
+    },
+    comment:  {
+        type: String,
+        required: true
+    },
+    image:  {
+        type: String,
+        required: true
+    },
+    adoptionDate:  {
+        type: Date,
+        required: true
+    },
 },{timestamps: true}
 );
 

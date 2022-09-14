@@ -11,15 +11,18 @@ const QuizSchema = new Schema({
     },
     size: {
         type: String,
-        enum: ["small","medium", "big"]
+        enum: ["small","medium", "big"],
+        required: true
     }, 
     personality: {
         type: String,
-        enum: ["energetic", "playful", "relaxed"]
+        enum: ["energetic", "playful", "relaxed"],
+        required: true
     }, 
     sociability: {
         type: String,
-        enum: ["sociable","no sociable"]
+        enum: ["sociable","no sociable"],
+        required: true
     },
    // pets: [Pet]// {
        // type: String,
@@ -31,7 +34,7 @@ const QuizSchema = new Schema({
         type: Schema.ObjectId,
         ref: "User"
     },
-}, { timestamps: true,});
+}, { timestamps: true});
 
 const Quiz = mongoose.model("Quiz", QuizSchema)
 
