@@ -1,6 +1,5 @@
 const router = require("express").Router();
 const mongoose = require("mongoose");
-const fileUploader = require('../config/cloudinary.config');
 
 
 //Pet model
@@ -97,11 +96,10 @@ router.get("/community",(req,res)=>{
 })
 
 
-router.post("/post", isLoggedIn,fileUploader.single('image'), (req,res, next) =>{
-	const {petname,name, comment, adoptionDate} = req.body
+router.post("/post", isLoggedIn, (req,res, next) =>{
+	const {petname,name, comment, image, adoptionDate} = req.body
 	console.log(req.body)
-	Post.create({petname,name, comment, image: req.file.path, adoptionDate})
-	console.log(req.file)
+	Post.create({petname,name, comment, image, adoptionDate})
 	.then((result)=>{
 		res.redirect("/pet/community")
 	}) . catch((err) => console.log(err))
