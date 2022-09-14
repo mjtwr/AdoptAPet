@@ -6,7 +6,8 @@ const Schema = mongoose.Schema
 const QuizSchema = new Schema({
     pet: {
         type: String,
-        enum: ["dog", "cat"]
+        enum: ["dog", "cat"],
+        required: true
     },
     size: {
         type: String,
