@@ -8,48 +8,67 @@
 		flex-direction: column;
 		align-items: center;
 	}
+	.containerLogIn-create-pet-signup {
+
+  margin:  6% 10%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+	justify-items: center;
+  position: relative;
+  border-radius: 20px;
+  padding: 20px 20px 20px 40px;
+  box-sizing: border-box;
+  background:linear-gradient(90deg, rgba(121,217,255,1) 0%, rgba(209,0,167,1) 100%);
+  box-shadow: 14px 14px 20px #cbced1, -14px -14px 20px white;
+	width: 350px;
+}
 
 </style>
 
 
-  <form action="/auth/signup" method="POST">
+  
 <div class="signup">
 <h2>Signup</h2>
- 
-    <label>
-      <input type="text" name="firstName" placeholder="First Name" />
+<div class="containerLogIn-create-pet-signup">
+  <div class="brand-logoLogIn"></div>
+  <div class="brand-titleLogIn">AdoptAPet</div>
+  <div class="inputsLogIn div-new-pet-fields">
+    <form action="/auth/signup" method="POST">
+    <label> First Name
+       <input type="text" name="firstName" placeholder="First Name" />
     </label>
- 
-    <label>
-      <input type="text" name="lastName" placeholder="Last Name" />
+    <label> Last Name
+      <input type="text" name="lastName" placeholder="Last Name">
     </label>
- 
-    <label> 
-      <input type="text" name="Age" class="age" placeholder="dd/mm/yy"/>
+		    <label> Age
+      <input type="date" name="age" placeholder="dd/mm/yyyy">
     </label>
+		    <label> City
+      <input type="text" name="city" placeholder="City">
+    </label>
+		    <label> Phone Number
+      <input type="tel" name="phone" placeholder="Phone Number">
+    </label>
+		    <label> Email
+      <input type="email" name="email" placeholder="pets@pets.com">
+    </label>
+				    <label> Username
+      <input type="text" name="username" placeholder="Username">
+    </label>
+		    <label> Password
+      <input type="password" name="password" placeholder="********">
+    </label>
+		
+		
+    <button type="submit">Submit</button>
+    </form>
+  </div>
+</div>
 
-		<label for=""> 
-			<input type="text" name="City" placeholder="City">
-		</label>
-
-		<label for=""> 
-			<input type="tel" name="phone" placeholder="Phone Number">
-		</label>
-
-		<label for="">
-			<input type="email" name="email" placeholder="pets@pets.com">
-		</label>
-
-		<label for="">
-			<input type="text" name="username" placeholder="Username">
-		</label>
-
-		<label for="">
-			<input type="password" name="password" placeholder="********">
-		</label>
-
-    <button type="submit" class="btnHome-signup">Create account</button>
-		</form>
+ 
+   
+		
 {{#if errorMessage}}
    {{errorMessage}}
 {{/if}}
