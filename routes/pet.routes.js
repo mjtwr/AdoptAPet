@@ -38,10 +38,7 @@ router.post("/new", isLoggedIn, fileUploader.single("image"),(req, res, next)=>{
 
 //View My Pets in Adoption
 router.get("/my-pets",isLoggedIn,(req,res)=>{
-	// Pet.find().then((pets)=>{
-	// 	console.log(pets)
-	// 	res.render("myPets", {pets : pets});
-	// })
+
 	User.findById(req.session.user._id, "pets")
 	.populate("pets")
 	.then((result) => {
