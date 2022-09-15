@@ -58,10 +58,10 @@
 <div class="containerLogIn-pet-wall" style="width: 18rem;">
   <img src="{{image}}" class="card-img-top-wall" alt="...">
   <div class="card-body-wall">
-    <h5 class="card-title">{{petname}} & {{user.firstName}}</h5>
-    <p class="card-text">{{user.city}}</p>
-    <p class="card-text">{{comment}}</p>
-    
+    <h5 class="card-title">{{petname}}</h5>
+		<p  class="card-text">{{size}}</p>
+    <p class="card-text">{{pet}}</p>
+    <a href="/pet/wall/{{_id}}" class="btnHome-wall">Meet me</a>
   </div>
 </div>
 {{/each}}
