@@ -60,7 +60,7 @@ router.get("/my-pets/:id/edit", (req,res) =>{
 	const {id} = req.params
 	Pet.findById(id)
 	.then(pet=>{
-		console.log("EDITTT--->", pet)
+		//console.log("EDITTT--->", pet)
 		res.render("editPet", {pet});
 		}) 
 	.catch ((err) => console.log(err))
@@ -68,20 +68,21 @@ router.get("/my-pets/:id/edit", (req,res) =>{
 
 router.post("/my-pets/:id/edit", (req,res, next) =>{
 	const {id} = req.params
+	console.log(id)
 	const {petname, dob, pet, size, sociability, personality, status, ...rest} = req.body
 	console.log("REST", rest)
 	Pet.findByIdAndUpdate(id,{petname, dob, pet, size, sociability, personality, status}, {new: true})
 	//console.log("REQ BODY=======>", req.body)
 	.then(result =>{
 		//console.log(result)
-		res.redirect(`/my-pets/`); 
+		res.redirect(`/my-pets/${req.params.id}`); 
 	})
 	.catch((err) => console.log(err))
 });
 //DELETE -PET MY PETS
 router.post("/my-pets/:id/delete", (req,res)=>{
 	const {id} = req.params
-	 console.log(req.params)
+	 //console.log(req.params)
 	Pet.findByIdAndDelete(id)
 	.then(result =>{
 		console.log("DELETEEEEEE------->",result)
