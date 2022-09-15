@@ -405,3 +405,54 @@ box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 
 .imageGoesHere{
 	border: 2px solid black;
 }
+
+
+.nav-item{
+  display: flex;
+  justify-content: center;
+}
+
+
+.nav-item img{
+  height:35px;
+  display: none;
+  margin-top: 25px;
+}
+
+.nav-item:hover img{
+  position: absolute;
+  display:inline-block;
+}
+
+.nav-item.dropdown img{
+  height:35px;
+  display: none;
+  margin-top: 25px;
+}
+
+.nav-item.dropdown:hover img{
+  position: absolute;
+  display:inline-block;
+}
+
+.dropdown-menu{
+  background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(102,0,82,1) 77%, rgba(209,0,167,1) 100%);
+}
+
+.dropdown-menu a{
+  color: white;
+}
+
+.ourTeam{
+  font-size: 90px;
+  padding-top: 40px;
+  padding-bottom: 70px;
+  background-image: url("/images/paws.jpg");
+  background-size: 200px;
+  background-repeat: repeat;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  text-shadow: #020819 7px 0px 8px;
+  text-align: center;
+}
