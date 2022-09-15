@@ -12,10 +12,11 @@ const express = require("express");
 // Handles the handlebars
 // https://www.npmjs.com/package/hbs
 const hbs = require("hbs");
-hbs.registerHelper("dateformat", (date)=>{
-    console.log(moment(date).format("YYYY/MM/DD"))
-    return moment(date).format("YYYY/MM/DD")
-})
+// hbs.registerHelper(“dateformat”, (date)=>{
+//     const formated = moment(date).format(“YYYY/MM/DD”)
+//   const fecha = formated.replace(/\//g,“-”)
+//    return fecha
+// })
 hbs.registerHelper("quizresults", (result)=>{
     if(result.length == 0){
         return true
