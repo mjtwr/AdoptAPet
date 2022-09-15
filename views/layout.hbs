@@ -30,11 +30,7 @@
             <a class="dropdown-item" href="/pet/wall">Wall of Adoption</a>
             <a class="dropdown-item" href="/pet/quiz">Pet Match</a>
           </div>
-          </li>
-          <li class="nav-item">
-            <img src="/images/catpaw.gif"/>
-            <a class="nav-link" href="/pet/community" style="color: #fff;">Our Community</a>
-          </li>
+          </li>    
           {{#if email}}
           <li class="nav-item">
             <img src="/images/catpaw.gif"/>
@@ -43,13 +39,27 @@
           <li class="nav-item">
             <img src="/images/catpaw.gif"/>
             <a class="nav-link" href="/pet/my-pets" style="color: #fff;">My Pets</a>
+          <li class="nav-item dropdown">
+            <img src="/images/catpaw.gif"/>
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #fff;">
+            Our Community
+            </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="/pet/post">Share Post</a>
+            <a class="dropdown-item" href="/pet/community">Our Families</a>
+          </div>
           </li>
           <li class="nav-item">
             <img src="/images/catpaw.gif"/>
             <a class="nav-link" href="/auth/logout" style="color: #fff;">Logout</a>
           </li>
           {{/if}}
+         
           {{#unless email}}
+           <li class="nav-item">
+            <img src="/images/catpaw.gif"/>
+            <a class="nav-link" href="/pet/community" style="color: #fff;">Our Community</a>
+          </li>
           <li class="nav-item">
             <img src="/images/catpaw.gif"/>
             <a class="nav-link" href="/auth/login" style="color: #fff;">Log In</a>

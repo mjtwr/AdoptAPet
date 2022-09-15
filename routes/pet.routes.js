@@ -81,21 +81,24 @@ router.post("/my-pets/:id/edit", (req,res, next) =>{
 
 //WALL OF PETS
 
-router.get("/wall/:id", isLoggedIn, (req, res)=>{
-	Pet.findById(req.params.id)
-		.populate("user", "firstName lastName phone city")
-		.then((pet)=>{
-	console.log(pet)
-	 res.render("petdetails", pet)
-	 }) 	
-})
-
 router.get("/wall",(req,res)=>{
 	Pet.find().then((pets)=>{
 		//console.log(pets)
 		res.render("wall", {pets : pets});
 	})
 });
+
+//WALL OF PETS - PETDETAILS
+router.get("/wall/:id", isLoggedIn,(req, res)=>{
+	Pet.findById(req.params.id)
+	.populate("user", "firstName lastName phone city ")
+	.then((pet)=>{
+	   console.log(pet)
+	   res.render("petdetails", pet)
+	   }) 	
+})
+
+
 
 //QUIZ - MATCH PETS
 

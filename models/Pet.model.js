@@ -27,7 +27,7 @@ const PetSchema = new Schema({
         enum: ["sociable","no sociable"],
         required: true
     },
-		city: String,
+	city: String,
     phone: String,
     name: String,
 	image: {
