@@ -20,11 +20,11 @@ router.get("/new",isLoggedIn,(req,res)=>{
 
 //form
 router.post("/new", isLoggedIn, fileUploader.single("image"),(req, res, next)=>{
-	const {petname, pet, dob, size, personality, sociability} = req.body
+	const {petname, pet, dob, size, personality, sociability,city,name,phone,status} = req.body
 	console.log("PETS====", req.body)
 	console.log("IMAGE--->>>>", req.file) 
 	Pet.create({
-		petname, pet, dob, size, personality, sociability,user: req.session.user._id, image:req.file.path,
+		petname, pet, dob, size, personality, sociability,user: req.session.user._id, image:req.file.path,city,name,phone,status
 	}).then((result)=>{
 		// console.log("USERID", req.session.user._id)
 		// console.log(result)
