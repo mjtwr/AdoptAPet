@@ -30,7 +30,10 @@ const PetSchema = new Schema({
 		city: String,
     phone: String,
     name: String,
-	image: String,
+	image: {
+        type: String,
+        required: true
+    },
     user: {
         type: Schema.Types.ObjectId,
         ref: "User",
