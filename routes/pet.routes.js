@@ -147,6 +147,7 @@ router.get("/post",isLoggedIn,(req,res)=>{
 
 router.get("/community",isLoggedIn,(req,res)=>{
 	Post.find({user: req.session.user._id})
+	.populate("user", "firstName city")
 	.then((result) => {
 		 //console.log(result)
 		res.render("community", {postCommunity : result});

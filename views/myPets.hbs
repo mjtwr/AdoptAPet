@@ -61,11 +61,8 @@
   <div class="card-body-wall">
     <h5 class="card-title">{{petname}}</h5>
     <p class="card-text">{{pet}}<br>{{status}}</p>
-		<a href="/pet/wall/{{_id}}" class="btnHome-wall">Meet me</a>
+		<a href="/pet/my-pets/{{_id}}" class="btnHome-wall">More</a>
   </div>
-  <form action="/pet/my-pets/{{_id}}/delete" method="POST" class="btnHome-signup">
-       <button>Delete</button>
-  </form>
 </div>
 {{/each}}
 {{!-- {{/if}} --}}
