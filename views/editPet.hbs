@@ -1,0 +1,74 @@
+<h1>Edit Pet</h1>
+<form action="/pet/new" method="POST" enctype="multipart/form-data">
+    
+    <div class="containerLogIn-create-pet" >
+        <h1 class="h1-create-pet">Let's find a home </h1> 
+        <div class="div-new-pet">
+             <div>
+                 <image class="image-create-pet" src="/images/adopt-create-pet-01.png" alt=""/>
+            </div>
+            <div class="div-new-pet-fields" >
+            <div class="field-create-pet">
+                <label class="form-label label-create-pet"> Pet's Name
+                    <input type="text" name="petname" value="{{petname}}" placeholder="Michi" class="form-control input-new-pet">
+                </label>
+            </div>
+            <div class="field-create-pet">
+                <label for="pets" class="form-label label-create-pet">Type of Pet</label>
+                <select id="pet" name="pet" value="{{pet}}" class="form-select form-control" aria-label="Default select example">
+                    <option selected>Select your pet</option>
+                    <option value="dog">Dog</option>
+                    <option value="cat">Cat</option>
+                </select>
+            </div>
+            <div class="field-create-pet">
+                <label class="form-label label-create-pet"> Date of Birth
+                    <input type="date" name="dob" value="{{dob}}" class="form-control">
+                </label>
+            </div>
+            <div class="field-create-pet">
+                <label for="size" class="form-label label-create-pet">Size</label>
+                <select id="size" name="size" value="{{size}}" class="form-select form-control" aria-label="Default select example">
+                    <option selected>What's your pet's size?</option>
+                    <option value="small">Small</option>
+                    <option value="medium">Medium</option>
+                    <option value="big">Big</option>
+                </select>
+            </div>
+            <div class="field-create-pet">
+                <label for="personality" class="form-label label-create-pet">Personality</label>
+                <select id="personality" name="personality"  value="{{personality}}" class="form-select form-control" aria-label="Default select example">
+                    <option selected>What's your pet's personality?</option>
+                    <option value="playful">Playful</option>
+                    <option value="energetic">Energetic</option>
+                    <option value="relaxed">Relaxed</option>
+                </select>
+            </div>
+            <div class="field-create-pet">
+                <label for="sociability" class="form-label label-create-pet">Sociability</label>
+                <select id="sociability" name="sociability" value="{{sociability}}"  class="form-select form-control" aria-label="Default select example">
+                    <option selected>Is your pet sociable?</option>
+                    <option value="sociable">Yes, very sociable</option>
+                    <option value="no sociable">Nope, he's better off alone</option>
+                </select>  
+            </div>
+            <div class="field-create-pet">
+                <label for="status" class="form-label label-create-pet">Status</label> 
+                <select id="status" name="status"  value="{{status}}"class="form-select form-control" aria-label="Default select example">
+                    <option selected>Looking for a familiy</option>
+                    <option value="looking for a family">Yes, we're looking for a family</option>
+                    <option value="adopted">Adopted ♥</option> solo aparece cuando hacemos update
+                </select>  
+            </div>  
+						<div class="input-group mb-3 field-create-pet">
+			             <input type="file" name="image" class="form-control" id="inputGroupFile02">
+				           
+						</div>
+                        <br>
+            <button type="submit" class="btnHome-signup">Update</button>
+           
+        </div>
+        </div>
+        
+   </div>
+</form>
