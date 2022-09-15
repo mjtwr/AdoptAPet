@@ -32,6 +32,7 @@ router.post("/new", isLoggedIn, fileUploader.single("image"),(req, res, next)=>{
 			res.redirect("/pet/my-pets")
 		})
 		})
+		.catch((err)=> console.log(err))
 		// .catch ((err)=> if (!username) {
 		// 	return res
 		// 	  .status(400)
@@ -46,7 +47,7 @@ router.get("/my-pets",isLoggedIn,(req,res)=>{
 	User.findById(req.session.user._id, "pets")
 	.populate("pets")
 	.then((result) => {
-		res.render("myPets", {pets : result.pets});
+		res.render("myPets", {pets : result.pets, email: req?.session?.user});
 	})
 	.catch ((err) => console.log(err))
 });
@@ -65,22 +66,22 @@ router.get("/my-pets/:id/edit", (req,res) =>{
 	const {id} = req.params
 	Pet.findById(id)
 	.then(pet=>{
-		//console.log("EDITTT--->", pet)
-		res.render("editPet", {pet});
+		console.log("EDITTT--->", pet)
+		res.render("editPet", pet);
 		}) 
 	.catch ((err) => console.log(err))
 });
 
-router.post("/my-pets/:id/edit", (req,res, next) =>{
+router.post("/my-pets/:id/edit", fileUploader.single("image"),(req,res, next) =>{
 	const {id} = req.params
 	console.log(id)
 	const {petname, dob, pet, size, sociability, personality, status, ...rest} = req.body
-	console.log("REST", rest)
-	Pet.findByIdAndUpdate(id,{petname, dob, pet, size, sociability, personality, status}, {new: true})
+	console.log("REST", req.body)
+	Pet.findByIdAndUpdate(id,{petname, dob, pet, size, sociability, personality, status, image: req.file.path}, {new: true})
 	//console.log("REQ BODY=======>", req.body)
 	.then(result =>{
-		//console.log(result)
-		res.redirect(`/my-pets/${req.params.id}`); 
+		console.log("EDITADO", result)
+		res.redirect(`/pet/my-pets/${req.params.id}`); 
 	})
 	.catch((err) => console.log(err))
 });
@@ -134,12 +135,15 @@ router.get("/quiz",isLoggedIn,(req,res)=>{
 router.post("/quiz" ,(req,res, next) =>{
 	const {pet, size,personality, sociability} = req.body
 	//console.log(req.body)
-	Pet.find({pet, size,personality, sociability})
+	Pet.find({pet, size,personality, sociability, status: "looking for a family"})
 	.then((result)=>{
 		console.log("RESULT QUIZ--->", result)
-		// if(pet.status === "looking for a family"){
+		if(result.length == 0){
+			 res.render("noMatches")
+		}else{ 
 			res.render("quizResults", {pets : result});
-		// } else { window.alert("jsdnfvklwejn")}
+		}
+
 	}) . catch((err) => console.log(err))
 	
 })

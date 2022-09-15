@@ -4,7 +4,7 @@ require("dotenv/config");
 
 // ℹ️ Connects to the database
 require("./db");
-
+const moment =require("moment")
 // Handles http requests (express is node js framework)
 // https://www.npmjs.com/package/express
 const express = require("express");
@@ -12,6 +12,15 @@ const express = require("express");
 // Handles the handlebars
 // https://www.npmjs.com/package/hbs
 const hbs = require("hbs");
+hbs.registerHelper("dateformat", (date)=>{
+    console.log(moment(date).format("YYYY/MM/DD"))
+    return moment(date).format("YYYY/MM/DD")
+})
+hbs.registerHelper("quizresults", (result)=>{
+    if(result.length == 0){
+        return true
+    }
+})
 
 const app = express();
 
@@ -21,7 +30,7 @@ require("./config")(app);
 const capitalized = require("./utils/capitalized");
 const projectName = "adoptapet";
 
-app.locals.appTitle = `${capitalized(projectName)} created with IronLauncher`;
+app.locals.appTitle = `${capitalized(projectName)}`;
 
 // 👇 Start handling routes here
 const index = require("./routes/index.routes");
