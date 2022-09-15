@@ -1,0 +1,88 @@
+<script>document.title=`{{petname}} Details`</script>
+<style>
+    .petdetails{
+        width: 90%;
+        height: 100%;
+        margin: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .petdetails-card{
+        {{!-- background-color: orangered; --}}
+        display: flex;
+        justify-content:first baseline;
+         border-radius: 20px;
+        padding: 20px 20px 20px 40px;
+        background: linear-gradient(195deg, rgba(230,229,13,1) 0%, rgba(105,197,251,1) 100%);
+        width: 800px;
+    }
+    .petdetails-image > img {
+        max-height: 100%;
+        max-width: 100%;
+        margin-bottom: 5px;
+    }
+    .petdetails-photocard{
+        display: block;
+        width: 500px;
+        {{!-- background-color: red; --}}
+    }
+   .petdetails-info{
+        width: 100%;
+        padding: 30px;
+        {{!-- background-color: green; --}}
+    }
+    .petname-petdetails{
+        font-weight: bolder;
+        {{!-- color: #cbced1; --}}
+    }
+    .petdetails-info-intro {
+        font-size: larger;
+        {{!-- background-color: blue; --}}
+    }
+    .petdetails-contactinfo {
+        {{!-- background-color: yellow; --}}
+    }
+    .goback {
+        padding-top: 10px;
+    }
+</style>
+<link rel="icon" type="" href="">
+<div class="petdetails">
+    <div class="petdetails-card">
+            <div class="petdetails-photocard">
+                <div class="petname-petdetails">
+                    <h1>{{petname}} details</h1>
+                </div>
+                <div class="petdetails-image">
+                    <img src="{{image}}" alt="" >
+                </div>
+                <div >
+                    <h3>Hi! My name is {{petname}}</h3>
+                    <p>I'm a {{pet}}</p>
+                    <p>{{dof}}</p>
+                </div>
+            </div>
+        <div class="petdetails-info">
+            <div class="petdetails-info-intro">
+                <h3>Let me tell you a little bit more about myself:</h3>
+                <p>I'm a very pretty {{pet}}, I'm a {{size}} pet.</p>
+                <p>I have a very {{personality}} personality, perfect for us to be best friends c:</p>
+                <p>I am {{sociability}}, which is very important to consider in case you have kids or other pets.</p>
+            </div>
+            <div class="petdetails-contactinfo">
+                <h4>Contact Information</h4>
+                <p>{{user.firstName}}</p>
+                <p>{{user.phone}}</p>
+                <p>{{user.city}}</p>
+                <p>I'm {{status}}</p>
+            </div>
+            <div class="goback">
+                <a href="/pet/wall/" class="btnHome-signup" >Go back</a>
+            </div>
+            <div class="goback">
+                <br>
+            </div>
+        </div>  
+    </div>
+</div>

@@ -112,7 +112,7 @@ router.get("/wall/:id", isLoggedIn,(req, res)=>{
 	.populate("user", "firstName lastName phone city ")
 	.then((pet)=>{
 	  // console.log(pet)
-	   res.render("petdetails", pet)
+	   res.render("wallpetdetails", pet)
 	   }) 	
 })
 
