@@ -49,8 +49,10 @@ router.get("/my-pets",isLoggedIn,(req,res)=>{
 
 //view pet details
 router.get("/my-pets/:id", isLoggedIn,(req, res)=>{
-	 Pet.findById(req.params.id).then((pet)=>{
-		//console.log(req.params.id)
+	 Pet.findById(req.params.id)
+	 .populate("user", "firstName lastName phone city ")
+	 .then((pet)=>{
+		console.log(pet)
 		res.render("petdetails", pet)
 		}) 	
 })
@@ -60,13 +62,16 @@ router.get("/my-pets/:id/edit", (req,res) =>{
 		res.render("editPet", pet);
 		}) 
 })
-router.post("/my-pets/:id/edit", (req,res) =>{
+router.post("/my-pets/:id/edit", (req,res, next) =>{
 	Pet.findByIdAndUpdate(req.params.id, req.body, {new: true})
 	console.log("REQ BODY=======>", req.body)
 	.then((result) =>{
+		console.log(result)
 		res.redirect(`/my-pets/${req.params.id}`);
 	})
+	.catch((err) => console.log(err))
 });
+
 //WALL OF ADOPTION
 
 router.get("/wall/:id", (req, res)=>{
@@ -87,21 +92,19 @@ router.get("/wall",(req,res)=>{
 //router.post
 
 router.get("/quiz",isLoggedIn,(req,res)=>{
-		res.render("../views/quiz",req.session.user);
+		res.render("quiz",req.session.user);
 	});
 
-	router.get("/quiz-results",isLoggedIn,(req,res)=>{
-		res.render("../views/quizResults", req.session.user);
-	});
+	
 
 
-
-router.post("/quiz",fileUploader.single("image") ,(req,res, next) =>{
+router.post("/quiz" ,(req,res, next) =>{
 	const {pet, size,personality, sociability} = req.body
 	//console.log(req.body)
-	Post.create({pet, size,personality, sociability})
+	Pet.find({pet, size,personality, sociability})
 	.then((result)=>{
-		res.redirect("/pet/quiz-results")
+		console.log("RESULT QUIZ--->", result)
+		res.render("quizResults");
 	}) . catch((err) => console.log(err))
 })
 
@@ -112,11 +115,10 @@ router.get("/post",isLoggedIn,(req,res)=>{
 });
 
 router.get("/community",isLoggedIn,(req,res)=>{
-	Post.findById(req.session.user._id, "posts")
-	.populate("posts")
+	Post.find({user: req.session.user._id})
 	.then((result) => {
-		// console.log(req.session.user.posts)
-		res.render("community", {posts : req.session.user.posts});
+		 console.log(result)
+		res.render("community", {postCommunity : result});
 	})
 	.catch ((err) => console.log(err))
 
@@ -131,13 +133,13 @@ router.post("/post", isLoggedIn,fileUploader.single("image"), (req,res, next) =>
 	//console.log(req.body)
 	Post.create({petname,name, comment, image: req.file.path, user: req.session.user._id, adoptionDate})
 	.then((result)=>{
-		console.log("RESULT---------->:",result.user)
+		console.log("RESULT---------->:",result)
 		User.findByIdAndUpdate(req.session.user._id, { $push: {posts: result._id}})
 		// .populate("posts")
 		// .then((result) =>{
 		// res.redirect("/pet/community", {posts:result._id})
 		.then(()=>{
-			res.redirect("community")
+			res.redirect("/pet/community")
 		})
 		// }) 
 	}) . catch((err) => console.log(err))

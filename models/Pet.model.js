@@ -34,6 +34,11 @@ const PetSchema = new Schema({
         type: String,
         // required: true
     },
+    status: {
+        type:String,
+        default: "looking for a family",
+        enum: ["looking for a family","adopted"],
+    },
     user: {
         type: Schema.Types.ObjectId,
         ref: "User",
