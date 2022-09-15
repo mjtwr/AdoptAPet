@@ -5,6 +5,7 @@ const fileUploader = require('../config/cloudinary.config');
 const bcrypt = require("bcrypt");
 const mongoose = require("mongoose");
 const MONGO_URI = require("../utils/consts");
+const axios = require("axios")
 
 // How many rounds should bcrypt run the salt (default [10 - 12 rounds])
 const saltRounds = 10;
@@ -21,6 +22,7 @@ router.get("/signup", isLoggedOut, (req, res) => {
 });
 
 router.post("/signup", isLoggedOut, (req, res) => {
+	const url = "https://api.emailjs.com/api/v1.0/email/send";
   const { firstName,lastName,phone,email,username,password,city} = req.body;
 	console.log("REQBODY:",req.body)
 
@@ -76,6 +78,36 @@ router.post("/signup", isLoggedOut, (req, res) => {
       .then((user) => {
         // Bind the user to the session object
         req.session.user = user;
+
+				//Send the email
+				const data = {
+					service_id:"service_jlm4m8f",
+					template_id: "template_bq7on8u",
+					user_id: "En1NBsFIFJiTQ2vLN", 
+					template_params: {
+						nombre: user.firstName,
+						email: user.email,
+					},
+					accessToken: "6Lgyot2qx5kzF8up-y_J5",
+				};
+				
+				const url = "https://api.emailjs.com/api/v1.0/email/send";
+				axios({
+					method: "post",
+					url,
+					headers: {
+						"Content-Type": "application/json",
+					},
+					data : JSON.stringify(data),
+				})
+				.then((result)=>{
+					
+					console.log("Correo enviado")
+				})
+				.catch((err)=>{
+					console.log(err)
+				})
+
         res.redirect("/");
       })
       .catch((error) => {

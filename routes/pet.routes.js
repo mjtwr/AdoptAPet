@@ -83,10 +83,10 @@ router.get("/quiz",isLoggedIn,(req,res)=>{
 
 
 
-router.post("/quiz", (req,res, next) =>{
+router.post("/quiz",fileUploader.single("image") ,(req,res, next) =>{
 	const {pet, size,personality, sociability} = req.body
 	console.log(req.body)
-	Post.create({pet, size,personality, sociability})
+	Post.create({pet, size,personality, sociability,image:req.file.path})
 	.then((result)=>{
 		res.redirect("/pet/quiz-results")
 	}) . catch((err) => console.log(err))
@@ -99,7 +99,10 @@ router.get("/post",isLoggedIn,(req,res)=>{
 });
 
 router.get("/community",(req,res)=>{
-	res.render("community", req.session.user)
+	Post.find().then((postCommunity)=>{
+		res.render("community",{postCommunity:postCommunity})
+
+	})
 })
 
 

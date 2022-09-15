@@ -1,4 +1,67 @@
-<h1>Our Happy Community</h1>
-{{#each posts}}
-<p>{{petname}}</p>
+<style>
+
+	.containerLogIn-pet-wall {
+        height: 12%;
+        margin:3%;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+				justify-content: center;
+        border-radius: 20px;
+        padding: 20px 20px 20px 40px;
+        box-sizing: border-box;
+        background: linear-gradient(195deg, rgba(230,229,13,1) 0%, rgba(105,197,251,1) 100%);
+        box-shadow: 14px 14px 20px #cbced1, -14px -14px 20px white;
+				
+}
+	.body-wall{
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-around;
+		align-items: center;
+		margin: 10px;
+	}
+	.card-img-top-wall{
+		height: 60%;
+		width: 70%;
+		margin-left: 15%;
+		margin-top: 5%;
+		border-radius: 5%;
+		margin-right: 20%;
+		}
+
+		.card-body-wall{
+			margin-top: 0;
+			justify-content: center;
+		}
+		.btnHome-wall {
+  font-family: 'Poppins';
+  font-size:15px;
+  font-weight: bold;
+  border:0px;
+  padding: 10px 50px;
+  color:white;
+  background-color:#d100a7;
+  box-shadow:8px 8px 0 rgba(251,59,73,.2);
+  text-decoration:none;
+  border-radius: 5px;
+}
+.wallOfAdoption{
+	display: flex;
+	justify-content: center;
+}
+</style>
+
+<h1 class="wallOfAdoption">Our Happy Community</h1>
+<div class="body-wall">
+{{#each postCommunity}}
+<div class="containerLogIn-pet-wall" style="width: 18rem;">
+  <img src="{{image}}" class="card-img-top-wall" alt="...">
+  <div class="card-body-wall">
+    <h5 class="card-title">{{petname}}</h5>
+    <p class="card-text">{{name}}<br>{{comment}}</p>
+		<a href="/pet/wall/{{_id}}" class="btnHome-wall">Meet me</a>
+  </div>
+</div>
 {{/each}}
+</div>

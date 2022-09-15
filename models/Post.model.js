@@ -19,7 +19,7 @@ const PostSchema = new Schema({
         required: true
     },
     adoptionDate:  {
-        type: Date,
+        type: String,
         required: true
     },
 },{timestamps: true}
