@@ -31,7 +31,12 @@ router.post("/new", isLoggedIn, fileUploader.single("image"),(req, res, next)=>{
 		.then(()=>{
 			res.redirect("/pet/my-pets")
 		})
-		}).catch ((err)=> console.log(err))
+		})
+		// .catch ((err)=> if (!username) {
+		// 	return res
+		// 	  .status(400)
+		// 	  .render("auth/login", { errorMessage: "Please provide petname." });
+		//   })
 	
 }) 
 

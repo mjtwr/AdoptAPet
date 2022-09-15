@@ -9,12 +9,12 @@
             <div class="div-new-pet-fields" >
             <div class="field-create-pet">
                 <label class="form-label label-create-pet"> Pet's Name
-                    <input type="text" name="petname"  placeholder="Michi" class="form-control input-new-pet">
+                    <input type="text" name="petname"  placeholder="Michi" class="form-control input-new-pet" required>
                 </label>
             </div>
             <div class="field-create-pet">
                 <label for="pets" class="form-label label-create-pet">Select your pet</label>
-                <select id="pet" name="pet" class="form-select form-control" aria-label="Default select example">
+                <select id="pet" name="pet" class="form-select form-control required" aria-label="Default select example" >
                     <option selected>-</option>
                     <option value="dog">Dog</option>
                     <option value="cat">Cat</option>
@@ -22,12 +22,12 @@
             </div>
             <div class="field-create-pet">
                 <label class="form-label label-create-pet"> Date of Birth
-                    <input type="date" name="dob" class="form-control">
+                    <input type="date" name="dob" class="form-control" required>
                 </label>
             </div>
             <div class="field-create-pet">
                 <label for="size" class="form-label label-create-pet">What's your pet's size?</label>
-                <select id="size" name="size" class="form-select form-control" aria-label="Default select example">
+                <select id="size" name="size" class="form-select form-control required" aria-label="Default select example">
                     <option selected>-</option>
                     <option value="small">Small</option>
                     <option value="medium">Medium</option>
@@ -36,7 +36,7 @@
             </div>
             <div class="field-create-pet">
                 <label for="personality" class="form-label label-create-pet">What's your pet's personality?</label>
-                <select id="personality" name="personality" class="form-select form-control" aria-label="Default select example">
+                <select id="personality" name="personality" class="form-select form-control required" aria-label="Default select example" required>
                     <option selected>-</option>
                     <option value="playful">Playful</option>
                     <option value="energetic">Energetic</option>
@@ -45,14 +45,14 @@
             </div>
             <div class="field-create-pet">
                 <label for="sociability" class="form-label label-create-pet">Is your pet sociable?</label>
-                <select id="sociability" name="sociability" class="form-select form-control" aria-label="Default select example">
+                <select id="sociability" name="sociability" class="form-select form-control required" aria-label="Default select example" required>
                     <option selected>-</option>
                     <option value="sociable">Yes, very sociable</option>
                     <option value="no sociable">Nope, he's better off alone</option>
                 </select>  
             </div>
 						<div class="input-group mb-3 field-create-pet">
-			             <input type="file" name="image" class="form-control" id="inputGroupFile02">
+			             <input type="file" name="image" class="form-control" id="inputGroupFile02" required>
 				           
 						</div>
             <button type="submit" class="btnHome-signup" role="button"">Submit</button>
