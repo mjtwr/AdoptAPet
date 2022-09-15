@@ -4,28 +4,28 @@ const Schema = mongoose.Schema
 const PostSchema = new Schema({
     petname:  {
         type: String,
-        required: true
+        // required: true
     },
     name:  {
         type: String,
-        required: true
+        // required: true
     },
     comment:  {
         type: String,
-        required: true
+        // required: true
     },
     image:  {
         type: String,
-        required: true
+        // required: true
     },
     adoptionDate:  {
         type: String,
-        required: true
+        // required: true
     },
     user: {
         type: Schema.Types.ObjectId,
         ref: "User",
-        required: true
+        // required: true
     },
 },{
     timestamps: true

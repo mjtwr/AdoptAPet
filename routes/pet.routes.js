@@ -112,14 +112,17 @@ router.get("/post",isLoggedIn,(req,res)=>{
 });
 
 router.get("/community",isLoggedIn,(req,res)=>{
-
 	Post.findById(req.session.user._id, "posts")
 	.populate("posts")
 	.then((result) => {
-		//console.log(result)
-		res.render("community", {posts : result.posts});
+		// console.log(req.session.user.posts)
+		res.render("community", {posts : req.session.user.posts});
 	})
 	.catch ((err) => console.log(err))
+
+	// Post.find().then((postCommunity)=>{
+	// 	res.render("community",{postCommunity:postCommunity})
+	// })
 });
 
 
@@ -128,10 +131,15 @@ router.post("/post", isLoggedIn,fileUploader.single("image"), (req,res, next) =>
 	//console.log(req.body)
 	Post.create({petname,name, comment, image: req.file.path, user: req.session.user._id, adoptionDate})
 	.then((result)=>{
+		console.log("RESULT---------->:",result.user)
 		User.findByIdAndUpdate(req.session.user._id, { $push: {posts: result._id}})
-		.then(() =>{
-		res.redirect("/pet/community")
+		// .populate("posts")
+		// .then((result) =>{
+		// res.redirect("/pet/community", {posts:result._id})
+		.then(()=>{
+			res.redirect("community")
 		})
+		// }) 
 	}) . catch((err) => console.log(err))
 })
 
