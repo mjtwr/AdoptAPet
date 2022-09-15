@@ -98,17 +98,27 @@ router.get("/post",isLoggedIn,(req,res)=>{
 	res.render("createPost", req.session.user)
 });
 
-router.get("/community",(req,res)=>{
-	res.render("community", req.session.user)
-})
+router.get("/community",isLoggedIn,(req,res)=>{
+
+	Post.findById(req.session.user._id, "posts")
+	.populate("posts")
+	.then((result) => {
+		console.log(result)
+		res.render("community", {posts : result.posts});
+	})
+	.catch ((err) => console.log(err))
+});
 
 
-router.post("/post", isLoggedIn, (req,res, next) =>{
+router.post("/post", isLoggedIn,fileUploader.single("image"), (req,res, next) =>{
 	const {petname,name, comment, image, adoptionDate} = req.body
 	console.log(req.body)
-	Post.create({petname,name, comment, image, adoptionDate})
+	Post.create({petname,name, comment, image: req.file.path, user: req.session.user._id, adoptionDate})
 	.then((result)=>{
+		User.findByIdAndUpdate(req.session.user._id, { $push: {posts: result._id}})
+		.then(() =>{
 		res.redirect("/pet/community")
+		})
 	}) . catch((err) => console.log(err))
 })
 
