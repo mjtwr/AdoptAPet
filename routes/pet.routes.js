@@ -51,7 +51,7 @@ router.get("/my-pets/:id", isLoggedIn,(req, res)=>{
 	 Pet.findById(req.params.id)
 	 .populate("user", "firstName lastName phone city ")
 	 .then((pet)=>{
-		console.log(pet)
+		//console.log(pet)
 		res.render("petdetails", pet)
 		}) 	
 })
@@ -71,13 +71,24 @@ router.post("/my-pets/:id/edit", (req,res, next) =>{
 	const {petname, dob, pet, size, sociability, personality, status, ...rest} = req.body
 	console.log("REST", rest)
 	Pet.findByIdAndUpdate(id,{petname, dob, pet, size, sociability, personality, status}, {new: true})
-	console.log("REQ BODY=======>", req.body)
+	//console.log("REQ BODY=======>", req.body)
 	.then(result =>{
 		//console.log(result)
 		res.redirect(`/my-pets/`); 
 	})
 	.catch((err) => console.log(err))
 });
+//DELETE -PET MY PETS
+router.post("/my-pets/:id/delete", (req,res)=>{
+	const {id} = req.params
+	 console.log(req.params)
+	Pet.findByIdAndDelete(id)
+	.then(result =>{
+		console.log("DELETEEEEEE------->",result)
+		res.redirect("/pet/my-pets")
+	})
+	.catch((err)=> console.log(err))
+})
 
 //WALL OF PETS
 
@@ -93,7 +104,7 @@ router.get("/wall/:id", isLoggedIn,(req, res)=>{
 	Pet.findById(req.params.id)
 	.populate("user", "firstName lastName phone city ")
 	.then((pet)=>{
-	   console.log(pet)
+	  // console.log(pet)
 	   res.render("petdetails", pet)
 	   }) 	
 })
@@ -136,7 +147,7 @@ router.get("/post",isLoggedIn,(req,res)=>{
 router.get("/community",isLoggedIn,(req,res)=>{
 	Post.find({user: req.session.user._id})
 	.then((result) => {
-		 console.log(result)
+		 //console.log(result)
 		res.render("community", {postCommunity : result});
 	})
 	.catch ((err) => console.log(err))

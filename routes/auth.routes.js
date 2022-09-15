@@ -24,7 +24,6 @@ router.get("/signup", isLoggedOut, (req, res) => {
 router.post("/signup", isLoggedOut, (req, res) => {
 	const url = "https://api.emailjs.com/api/v1.0/email/send";
   const { firstName,lastName,phone,email,username,password,city} = req.body;
-	console.log("REQBODY:",req.body)
 
   if (!username) {
     return res.status(400).render("auth/signup", {
