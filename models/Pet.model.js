@@ -32,7 +32,7 @@ const PetSchema = new Schema({
     name: String,
 	image: {
         type: String,
-        required: true
+        //required: true
     },
     user: {
         type: Schema.Types.ObjectId,

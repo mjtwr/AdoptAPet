@@ -16,7 +16,7 @@ const PostSchema = new Schema({
     },
     image:  {
         type: String,
-        required: true
+       // required: true
     },
     adoptionDate:  {
         type: String,

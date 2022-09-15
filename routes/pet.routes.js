@@ -112,7 +112,6 @@ router.get("/post",isLoggedIn,(req,res)=>{
 });
 
 router.get("/community",isLoggedIn,(req,res)=>{
-
 	Post.findById(req.session.user._id, "posts")
 	.populate("posts")
 	.then((result) => {
@@ -128,7 +127,7 @@ router.post("/post", isLoggedIn,fileUploader.single("image"), (req,res, next) =>
 	//console.log(req.body)
 	Post.create({petname,name, comment, image: req.file.path, user: req.session.user._id, adoptionDate})
 	.then((result)=>{
-		User.findByIdAndUpdate(req.session.user._id, { $push: {posts: result._id}})
+		User.findByIdAndUpdate(req.session.user._id, { $push: {posts: result._id}}, {new:true})
 		.then(() =>{
 		res.redirect("/pet/community")
 		})
