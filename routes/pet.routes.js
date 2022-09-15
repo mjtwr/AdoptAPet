@@ -3,22 +3,21 @@ const mongoose = require("mongoose");
 const fileUploader = require("../config/cloudinary.config");
 
 
-//Pet model
+//MODELS
 const Pet = require("../models/Pet.model");
 const User = require("../models/User.model");
 const Post = require("../models/Post.model");
 
+//MIDDLEWARES
 const isLoggedOut = require("../middleware/isLoggedOut");
 const isLoggedIn = require("../middleware/isLoggedIn");
 
 
-
+//CREATE PET - NEW PET FOR ADOPTION
 router.get("/new",isLoggedIn,(req,res)=>{
 	res.render("create-pet",req.session.user)
 });
 
-
-//form
 router.post("/new", isLoggedIn, fileUploader.single("image"),(req, res, next)=>{
 	const {petname, pet, dob, size, personality, sociability,city, image, name,phone,status} = req.body
 	//console.log("PETS====", req.body)
@@ -36,7 +35,7 @@ router.post("/new", isLoggedIn, fileUploader.single("image"),(req, res, next)=>{
 	
 }) 
 
-//View My Pets in Adoption
+//MY PETS - VIEW MY PETS FOR ADOPTION
 router.get("/my-pets",isLoggedIn,(req,res)=>{
 
 	User.findById(req.session.user._id, "pets")
@@ -47,7 +46,7 @@ router.get("/my-pets",isLoggedIn,(req,res)=>{
 	.catch ((err) => console.log(err))
 });
 
-//view pet details
+//MY PETS - PET DETAILS
 router.get("/my-pets/:id", isLoggedIn,(req, res)=>{
 	 Pet.findById(req.params.id)
 	 .populate("user", "firstName lastName phone city ")
@@ -56,27 +55,37 @@ router.get("/my-pets/:id", isLoggedIn,(req, res)=>{
 		res.render("petdetails", pet)
 		}) 	
 })
-//Edit petdetails
+//EDIT MY PETS - PET DETAILS
 router.get("/my-pets/:id/edit", (req,res) =>{
-	Pet.findById(req.params.id).then((pet)=>{
-		res.render("editPet", pet);
+	const {id} = req.params
+	Pet.findById(id)
+	.then(pet=>{
+		console.log("EDITTT--->", pet)
+		res.render("editPet", {pet});
 		}) 
-})
+	.catch ((err) => console.log(err))
+});
+
 router.post("/my-pets/:id/edit", (req,res, next) =>{
-	Pet.findByIdAndUpdate(req.params.id, req.body, {new: true})
+	const {id} = req.params
+	const {petname, dob, pet, size, sociability, personality, status, ...rest} = req.body
+	console.log("REST", rest)
+	Pet.findByIdAndUpdate(id,{petname, dob, pet, size, sociability, personality, status}, {new: true})
 	console.log("REQ BODY=======>", req.body)
-	.then((result) =>{
-		console.log(result)
-		res.redirect(`/my-pets/${req.params.id}`);
+	.then(result =>{
+		//console.log(result)
+		res.redirect(`/my-pets/`); 
 	})
 	.catch((err) => console.log(err))
 });
 
-//WALL OF ADOPTION
+//WALL OF PETS
 
-router.get("/wall/:id", (req, res)=>{
-	Pet.findById(req.params.id).then((pet)=>{
-	// console.log(req.params.id)
+router.get("/wall/:id", isLoggedIn, (req, res)=>{
+	Pet.findById(req.params.id)
+		.populate("user", "firstName lastName phone city")
+		.then((pet)=>{
+	console.log(pet)
 	 res.render("petdetails", pet)
 	 }) 	
 })
@@ -84,19 +93,23 @@ router.get("/wall/:id", (req, res)=>{
 router.get("/wall",(req,res)=>{
 	Pet.find().then((pets)=>{
 		//console.log(pets)
-		res.render("../views/wall", {pets : pets});
+		res.render("wall", {pets : pets});
 	})
 });
 
-//Quiz
-//router.post
+//QUIZ - MATCH PETS
 
 router.get("/quiz",isLoggedIn,(req,res)=>{
 		res.render("quiz",req.session.user);
 	});
 
-	
+	router.get("/quiz-results",isLoggedIn,(req,res)=>{
+		res.render("quizResults",req.session.user);
+	});
 
+	router.get("/quiz-no-matches",isLoggedIn,(req,res)=>{
+		res.render("noMatches",req.session.user);
+	});
 
 router.post("/quiz" ,(req,res, next) =>{
 	const {pet, size,personality, sociability} = req.body
@@ -104,12 +117,15 @@ router.post("/quiz" ,(req,res, next) =>{
 	Pet.find({pet, size,personality, sociability})
 	.then((result)=>{
 		console.log("RESULT QUIZ--->", result)
-		res.render("quizResults");
+		// if(pet.status === "looking for a family"){
+			res.render("quizResults", {pets : result});
+		// } else { window.alert("jsdnfvklwejn")}
 	}) . catch((err) => console.log(err))
+	
 })
 
 
-//POSTS - OUR COMMUNITY
+//OUR COMMUNITY - POSTS
 router.get("/post",isLoggedIn,(req,res)=>{
 	res.render("createPost", req.session.user)
 });
@@ -121,10 +137,6 @@ router.get("/community",isLoggedIn,(req,res)=>{
 		res.render("community", {postCommunity : result});
 	})
 	.catch ((err) => console.log(err))
-
-	// Post.find().then((postCommunity)=>{
-	// 	res.render("community",{postCommunity:postCommunity})
-	// })
 });
 
 
@@ -133,15 +145,11 @@ router.post("/post", isLoggedIn,fileUploader.single("image"), (req,res, next) =>
 	//console.log(req.body)
 	Post.create({petname,name, comment, image: req.file.path, user: req.session.user._id, adoptionDate})
 	.then((result)=>{
-		console.log("RESULT---------->:",result)
+		//console.log("RESULT---------->:",result)
 		User.findByIdAndUpdate(req.session.user._id, { $push: {posts: result._id}})
-		// .populate("posts")
-		// .then((result) =>{
-		// res.redirect("/pet/community", {posts:result._id})
 		.then(()=>{
 			res.redirect("/pet/community")
 		})
-		// }) 
 	}) . catch((err) => console.log(err))
 })
 
