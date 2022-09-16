@@ -142,7 +142,7 @@ router.post("/quiz" ,(req,res, next) =>{
 		if(result.length == 0){
 			 res.render("noMatches")
 		}else{ 
-			res.render("quizResults", {pets : result, email: req?.session?.user});
+			res.render("wallpetdetails", {pets : result, email: req?.session?.user});
 		}
 
 	}) . catch((err) => console.log(err))
