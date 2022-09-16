@@ -6,7 +6,12 @@ body {
 .logo2 {
   height: 50px;
 }
-
+h1{
+  font-size:70px;
+  font-weight: bold;
+  padding: 20px 0px 20px;
+  color: #26b4d1;
+}
 .home1 {
   display: flex;
   flex-direction:column;
@@ -85,12 +90,11 @@ body {
 }
 .home2 h3 {
   font-size:30px;
-  background-color:rgba(255,204,53,.4);
-  transform:skew(9deg,0deg);
-  margin:0px 300px;
+   margin:0px 300px;
 }
 .home2 p {
   padding: 20px 10% 25px;
+  font-size: large;
 }
 
 .home3 {
@@ -114,6 +118,7 @@ body {
 .home3 p {
   font-size:13px;
   width:200px;
+  font-family: 'Poppins';
 }
 .home3 img{
   height: 180px;
@@ -123,26 +128,22 @@ body {
 .home3 h4 {
   color: whitesmoke;
   padding:20px 0px 0px;
+  font-family: 'Poppins';
 }
 
 .information{
   display: flex;
   align-items: center;
   flex-direction: column;
+  font-family: 'Poppins';
 }
 
 nav{
   
-  /* background-image:url("/images/paws2.png"); */
   background: radial-gradient(circle, rgba(209,0,167,1) 0%, rgba(102,0,82,1) 33%, rgba(0,0,0,1) 100%);
-  /* opacity: 0.8; */
-  /* background-position: 0px 425px; 
-  background-size: 200px; */
-  
+ 
 }
-/* .navbar-nav{
-  padding-left: 700px;
-} */
+
 
 .inputsLogIn input{
   caret-color: red;
@@ -159,7 +160,7 @@ nav{
   justify-content: center;
   place-items: center;
   overflow: hidden;
-  font-family: poppins;
+  font-family: 'Poppins';
 }
 
 .containerLogIn {
@@ -177,6 +178,7 @@ nav{
   box-sizing: border-box;
   background: #ecf0f3;
   box-shadow: 14px 14px 20px #cbced1, -14px -14px 20px white;
+  
 }
 
 .brand-logoLogIn {
@@ -262,6 +264,7 @@ nav{
   -webkit-background-clip: text;
   background-clip: text;
   text-shadow: #020819 7px 0px 8px;
+  font-family: 'Poppins';
 }
 
 .information h2{
@@ -275,6 +278,7 @@ nav{
   -webkit-background-clip: text;
   background-clip: text;
   text-shadow: #020819 7px 0px 8px;
+  font-family: 'Poppins';
 }
 
 .paw3{
@@ -322,6 +326,7 @@ hr {
   padding: 30px 20px;
   background-color: #6b94f4;
   border-radius: 25px;
+  font-family: 'Poppins';
 }
 .containerLogIn-create-pet {
 
@@ -353,11 +358,14 @@ hr {
 }
 .label-create-pet{
   font-weight: bold;
+  color: white;
+  font-family: 'Poppins';
 }
 .h1-create-pet{
-  color: #000000;
+  color: #ffffff;
   text-align: center;
   margin-bottom: 30px;
+  font-family: 'Poppins';
 }
 .image-create-pet{
   border-radius: 5px;
@@ -383,6 +391,7 @@ hr {
   -webkit-user-select: none;
   touch-action: manipulation;
   white-space: nowrap;
+  font-family: 'Poppins';
 }
 
 .btn-create-pet:not([disabled]):focus {
@@ -455,4 +464,100 @@ box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 
   background-clip: text;
   text-shadow: #020819 7px 0px 8px;
   text-align: center;
+}
+.containerLogIn-pet-wall {
+  height: 12%;
+  margin:3%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+  padding: 20px 20px 20px 40px;
+  box-sizing: border-box;
+  background: linear-gradient(195deg, rgba(230,229,13,1) 0%, rgba(105,197,251,1) 100%);
+  box-shadow: 14px 14px 20px #cbced1, -14px -14px 20px white;
+  font-family: 'Poppins';
+  
+}
+.body-wall{
+display: flex;
+flex-wrap: wrap;
+justify-content: space-around;
+align-items: center;
+margin: 10px;
+font-family: 'Poppins';
+}
+.card-img-top-wall{
+height: 60%;
+width: 70%;
+margin-left: 15%;
+margin-top: 5%;
+border-radius: 5%;
+margin-right: 20%;
+}
+
+.card-body-wall{
+margin-top: 0;
+justify-content: center;
+font-family: 'Poppins';
+}
+.btnHome-wall {
+font-family: 'Poppins';
+font-size:15px;
+font-weight: bold;
+border:0px;
+padding: 10px 50px;
+color:white;
+background-color:#d100a7;
+box-shadow:8px 8px 0 rgba(251,59,73,.2);
+text-decoration:none;
+border-radius: 5px;
+font-family: 'Poppins';
+}
+.wallOfAdoption{
+display: flex;
+justify-content: center;
+}
+.petdetails{
+  width: 90%;
+  height: 100%;
+  margin: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Poppins';
+}
+.petdetails-card{
+  display: flex;
+  justify-content:first baseline;
+   border-radius: 20px;
+  padding: 20px 20px 20px 40px;
+  background: linear-gradient(195deg, rgba(230,229,13,1) 0%, rgba(105,197,251,1) 100%);
+  width: 800px;
+}
+.petdetails-image > img {
+  max-height: 100%;
+  max-width: 100%;
+  margin-bottom: 5px;
+}
+.petdetails-photocard{
+  display: block;
+  width: 500px;
+}
+.petdetails-info{
+  width: 100%;
+  padding: 30px;
+  font-family: 'Poppins';
+}
+.petname-petdetails{
+  font-weight: bolder;
+  font-family: 'Poppins';
+}
+.petdetails-info-intro {
+  font-size: larger;
+  font-family: 'Poppins';
+}
+.goback {
+  padding-top: 10px;
 }
