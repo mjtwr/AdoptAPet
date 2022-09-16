@@ -89,7 +89,9 @@ router.post("/my-pets/:id/delete", (req,res)=>{
 
 router.get("/wall",(req,res)=>{
 	Pet.find().then((pets)=>{
-		res.render("wall", {pets : pets, email: req?.session?.user});
+		console.log(pets)
+		res.render("wall", {pets : pets, email: req?.session?.user?.email});
+		console.log(req?.session?.user?.email)
 	})
 });
 
