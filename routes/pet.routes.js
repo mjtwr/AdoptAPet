@@ -20,24 +20,15 @@ router.get("/new",isLoggedIn,(req,res)=>{
 
 router.post("/new", isLoggedIn, fileUploader.single("image"),(req, res, next)=>{
 	const {petname, pet, dob, size, personality, sociability,city, image, name,phone,status} = req.body
-	//console.log("PETS====", req.body)
-	//console.log("IMAGE--->>>>", req.file) 
 	Pet.create({
 		petname, pet, dob, size, personality, sociability,user: req.session.user._id, image:req.file.path, city,name,phone,status
 	}).then((result)=>{
-		// console.log("USERID", req.session.user._id)
-		// console.log(result)
 		User.findByIdAndUpdate(req.session.user._id, { $push: { pets: result._id }})
 		.then(()=>{
 			res.redirect("/pet/my-pets")
 		})
 		})
 		.catch((err)=> console.log(err))
-		// .catch ((err)=> if (!username) {
-		// 	return res
-		// 	  .status(400)
-		// 	  .render("auth/login", { errorMessage: "Please provide petname." });
-		//   })
 	
 }) 
 
@@ -57,7 +48,6 @@ router.get("/my-pets/:id", isLoggedIn,(req, res)=>{
 	 Pet.findById(req.params.id)
 	 .populate("user", "firstName lastName phone city ")
 	 .then((pet)=>{
-		//console.log(pet)
 		res.render("petdetails", pet)
 		}) 	
 })
@@ -78,7 +68,6 @@ router.post("/my-pets/:id/edit", fileUploader.single("image"),(req,res, next) =>
 	const {petname, dob, pet, size, sociability, personality, status, ...rest} = req.body
 	console.log("REST", req.body)
 	Pet.findByIdAndUpdate(id,{petname, dob, pet, size, sociability, personality, status, image: req.file.path}, {new: true})
-	//console.log("REQ BODY=======>", req.body)
 	.then(result =>{
 		console.log("EDITADO", result)
 		res.redirect(`/pet/my-pets/${req.params.id}`); 
@@ -88,7 +77,6 @@ router.post("/my-pets/:id/edit", fileUploader.single("image"),(req,res, next) =>
 //DELETE -PET MY PETS
 router.post("/my-pets/:id/delete", (req,res)=>{
 	const {id} = req.params
-	 //console.log(req.params)
 	Pet.findByIdAndDelete(id)
 	.then(result =>{
 		console.log("DELETEEEEEE------->",result)
@@ -101,7 +89,6 @@ router.post("/my-pets/:id/delete", (req,res)=>{
 
 router.get("/wall",(req,res)=>{
 	Pet.find().then((pets)=>{
-		//console.log(pets)
 		res.render("wall", {pets : pets, email: req?.session?.user});
 	})
 });
@@ -111,7 +98,6 @@ router.get("/wall/:id", isLoggedIn,(req, res)=>{
 	Pet.findById(req.params.id)
 	.populate("user", "firstName lastName phone city ")
 	.then((pet)=>{
-	  // console.log(pet)
 	   res.render("wallpetdetails", pet)
 	   })
 	   .catch 	
@@ -135,7 +121,6 @@ router.get("/quiz",isLoggedIn,(req,res)=>{
 
 router.post("/quiz" ,(req,res, next) =>{
 	const {pet, size,personality, sociability} = req.body
-	//console.log(req.body)
 	Pet.find({pet, size,personality, sociability, status: "looking for a family"})
 	.then((result)=>{
 		console.log("RESULT QUIZ--->", result)
@@ -159,7 +144,6 @@ router.get("/community",isLoggedIn,(req,res)=>{
 	Post.find({user: req.session.user._id})
 	.populate("user", "firstName city")
 	.then((result) => {
-		 //console.log(result)
 		res.render("community", {postCommunity : result, email: req?.session?.user});
 	})
 	.catch ((err) => console.log(err))
@@ -168,10 +152,8 @@ router.get("/community",isLoggedIn,(req,res)=>{
 
 router.post("/post", isLoggedIn,fileUploader.single("image"), (req,res, next) =>{
 	const {petname,name, comment, image, adoptionDate} = req.body
-	//console.log(req.body)
 	Post.create({petname,name, comment, image: req.file.path, user: req.session.user._id, adoptionDate})
 	.then((result)=>{
-		//console.log("RESULT---------->:",result)
 		User.findByIdAndUpdate(req.session.user._id, { $push: {posts: result._id, email: req?.session?.user}})
 		.then(()=>{
 			res.redirect("/pet/community")
