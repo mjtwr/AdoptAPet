@@ -102,7 +102,7 @@ router.post("/my-pets/:id/delete", (req,res)=>{
 router.get("/wall",(req,res)=>{
 	Pet.find().then((pets)=>{
 		//console.log(pets)
-		res.render("wall", {pets : pets});
+		res.render("wall", {pets : pets, email: req?.session?.user});
 	})
 });
 
@@ -113,7 +113,8 @@ router.get("/wall/:id", isLoggedIn,(req, res)=>{
 	.then((pet)=>{
 	  // console.log(pet)
 	   res.render("wallpetdetails", pet)
-	   }) 	
+	   })
+	   .catch 	
 })
 
 
@@ -141,7 +142,7 @@ router.post("/quiz" ,(req,res, next) =>{
 		if(result.length == 0){
 			 res.render("noMatches")
 		}else{ 
-			res.render("quizResults", {pets : result});
+			res.render("quizResults", {pets : result, email: req?.session?.user});
 		}
 
 	}) . catch((err) => console.log(err))
@@ -159,7 +160,7 @@ router.get("/community",isLoggedIn,(req,res)=>{
 	.populate("user", "firstName city")
 	.then((result) => {
 		 //console.log(result)
-		res.render("community", {postCommunity : result});
+		res.render("community", {postCommunity : result, email: req?.session?.user});
 	})
 	.catch ((err) => console.log(err))
 });
@@ -171,7 +172,7 @@ router.post("/post", isLoggedIn,fileUploader.single("image"), (req,res, next) =>
 	Post.create({petname,name, comment, image: req.file.path, user: req.session.user._id, adoptionDate})
 	.then((result)=>{
 		//console.log("RESULT---------->:",result)
-		User.findByIdAndUpdate(req.session.user._id, { $push: {posts: result._id}})
+		User.findByIdAndUpdate(req.session.user._id, { $push: {posts: result._id, email: req?.session?.user}})
 		.then(()=>{
 			res.redirect("/pet/community")
 		})
