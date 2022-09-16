@@ -100,11 +100,8 @@ router.get("/wall/:id", isLoggedIn,(req, res)=>{
 	.then((pet)=>{
 	   res.render("wallpetdetails", pet)
 	   })
-	   .catch 	
+	   .catch((err)=> console.log(err))	
 })
-
-
-
 //QUIZ - MATCH PETS
 
 router.get("/quiz",isLoggedIn,(req,res)=>{
@@ -127,13 +124,12 @@ router.post("/quiz" ,(req,res, next) =>{
 		if(result.length == 0){
 			 res.render("noMatches")
 		}else{ 
-			res.render("wallpetdetails", {pets : result, email: req?.session?.user});
+			res.render("wall", {pets : result, email: req?.session?.user});
 		}
 
 	}) . catch((err) => console.log(err))
 	
 })
-
 
 //OUR COMMUNITY - POSTS
 router.get("/post",isLoggedIn,(req,res)=>{
